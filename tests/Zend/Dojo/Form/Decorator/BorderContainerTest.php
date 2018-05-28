@@ -45,7 +45,7 @@ class Zend_Dojo_Form_Decorator_BorderContainerTest extends PHPUnit\Framework\Tes
         Zend_Registry::_unsetInstance();
         Zend_Dojo_View_Helper_Dojo::setUseDeclarative();
 
-        $this->view   = $this->getView();
+        $this->view      = $this->getView();
         $this->decorator = new Zend_Dojo_Form_Decorator_BorderContainer();
         $this->element   = $this->getElement();
         $this->element->setView($this->view);
@@ -73,9 +73,9 @@ class Zend_Dojo_Form_Decorator_BorderContainerTest extends PHPUnit\Framework\Tes
     {
         $element = new Zend_Dojo_Form();
         $element->setAttribs(array(
-            'name'   => 'foo',
-            'style'  => 'width: 300px; height: 500px;',
-            'class'  => 'someclass',
+            'name'        => 'foo',
+            'style'       => 'width: 300px; height: 500px;',
+            'class'       => 'someclass',
             'dijitParams' => array(
                 'labelAttr' => 'foobar',
                 'typeAttr'  => 'barbaz',

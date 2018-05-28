@@ -73,7 +73,7 @@ class Zend_Dojo_View_Helper_TimeTextBoxTest extends PHPUnit\Framework\TestCase
             'elementId',
             '2008-07-07',
             array(
-                'required'    => true,
+                'required' => true,
             ),
             array()
         );

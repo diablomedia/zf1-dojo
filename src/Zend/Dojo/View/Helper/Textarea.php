@@ -35,7 +35,7 @@ class Zend_Dojo_View_Helper_Textarea extends Zend_Dojo_View_Helper_Dijit
      * Dijit being used
      * @var string
      */
-    protected $_dijit  = 'dijit.form.Textarea';
+    protected $_dijit = 'dijit.form.Textarea';
 
     /**
      * HTML element type
@@ -61,9 +61,9 @@ class Zend_Dojo_View_Helper_Textarea extends Zend_Dojo_View_Helper_Dijit
     public function textarea($id, $value = null, array $params = array(), array $attribs = array())
     {
         if (!array_key_exists('id', $attribs)) {
-            $attribs['id']    = $id;
+            $attribs['id'] = $id;
         }
-        $attribs['name']  = $id;
+        $attribs['name'] = $id;
 
         $attribs = $this->_prepareDijit($attribs, $params, 'textarea');
 

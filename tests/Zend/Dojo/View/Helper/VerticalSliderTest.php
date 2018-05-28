@@ -76,7 +76,7 @@ class Zend_Dojo_View_Helper_VerticalSliderTest extends PHPUnit\Framework\TestCas
                 'minimum'        => -10,
                 'maximum'        => 10,
                 'discreteValues' => 11,
-                'topDecoration' => array(
+                'topDecoration'  => array(
                     'labels' => array(
                         ' ',
                         '20%',

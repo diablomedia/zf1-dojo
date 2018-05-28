@@ -45,7 +45,7 @@ class Zend_Dojo_View_Helper_CustomDijitTest extends PHPUnit\Framework\TestCase
         Zend_Registry::_unsetInstance();
         Zend_Dojo_View_Helper_Dojo::setUseDeclarative();
 
-        $this->view   = $this->getView();
+        $this->view = $this->getView();
     }
 
     /**
@@ -144,8 +144,7 @@ class Zend_Dojo_View_Helper_CustomDijitTest extends PHPUnit\Framework\TestCase
     }
 }
 
-class Zend_Dojo_View_Helper_CustomDijitTest_FooContentPane
-    extends Zend_Dojo_View_Helper_CustomDijit
+class Zend_Dojo_View_Helper_CustomDijitTest_FooContentPane extends Zend_Dojo_View_Helper_CustomDijit
 {
     protected $_defaultDojoType = 'foo.ContentPane';
 

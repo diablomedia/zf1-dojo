@@ -90,7 +90,7 @@ class Zend_Dojo_View_Helper_EditorTest extends PHPUnit\Framework\TestCase
 
     public function testHelperShouldRegisterDijitModule()
     {
-        $html = $this->helper->editor('foo');
+        $html    = $this->helper->editor('foo');
         $modules = $this->view->dojo()->getModules();
         $this->assertContains('dijit.Editor', $modules);
     }
@@ -106,8 +106,8 @@ class Zend_Dojo_View_Helper_EditorTest extends PHPUnit\Framework\TestCase
 
     public function testHelperShouldJsonifyPlugins()
     {
-        $plugins = array('copy', 'cut', 'paste');
-        $html = $this->helper->editor('foo', '', array('plugins' => $plugins));
+        $plugins       = array('copy', 'cut', 'paste');
+        $html          = $this->helper->editor('foo', '', array('plugins' => $plugins));
         $pluginsString = Zend_Json::encode($plugins);
         $pluginsString = str_replace('"', "'", $pluginsString);
         $this->assertContains('plugins="' . $pluginsString . '"', $html);
@@ -117,7 +117,7 @@ class Zend_Dojo_View_Helper_EditorTest extends PHPUnit\Framework\TestCase
     {
         $this->helper->editor('foo');
         $onLoadActions = $this->view->dojo()->getOnLoadActions();
-        $found = false;
+        $found         = false;
         foreach ($onLoadActions as $action) {
             if (strstr($action, "value = dijit.byId('foo-Editor').getValue(false);")) {
                 $found = true;
@@ -131,9 +131,9 @@ class Zend_Dojo_View_Helper_EditorTest extends PHPUnit\Framework\TestCase
     {
         $this->helper->editor('foo');
         $javascript = $this->view->dojo()->getJavascript();
-        $found = false;
+        $found      = false;
         foreach ($javascript as $action) {
-            if (strstr($action, "zend.findParentForm = function")) {
+            if (strstr($action, 'zend.findParentForm = function')) {
                 $found = true;
                 break;
             }
@@ -154,7 +154,7 @@ class Zend_Dojo_View_Helper_EditorTest extends PHPUnit\Framework\TestCase
     {
         $plugins = array(
             'createLink' => 'LinkDialog',
-            'fontName' => 'FontChoice',
+            'fontName'   => 'FontChoice',
         );
         $html = $this->helper->editor('foo', '', array('plugins' => array_keys($plugins)));
 
@@ -196,8 +196,8 @@ class Zend_Dojo_View_Helper_EditorTest extends PHPUnit\Framework\TestCase
     /** @group ZF-5711 */
     public function testHelperShouldJsonifyExtraPlugins()
     {
-        $extraPlugins = array('copy', 'cut', 'paste');
-        $html = $this->helper->editor('foo', '', array('extraPlugins' => $extraPlugins));
+        $extraPlugins  = array('copy', 'cut', 'paste');
+        $html          = $this->helper->editor('foo', '', array('extraPlugins' => $extraPlugins));
         $pluginsString = Zend_Json::encode($extraPlugins);
         $pluginsString = str_replace('"', "'", $pluginsString);
         $this->assertContains('extraPlugins="' . $pluginsString . '"', $html);

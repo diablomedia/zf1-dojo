@@ -240,17 +240,17 @@ class Zend_Dojo_DataTest extends PHPUnit\Framework\TestCase
     public function testAddItemsShouldAcceptArray()
     {
         $items = array(
-            array (
+            array(
                 'id'    => 1,
                 'title' => 'Foo',
                 'email' => 'foo@bar',
             ),
-            array (
+            array(
                 'id'    => 2,
                 'title' => 'Bar',
                 'email' => 'bar@bar',
             ),
-            array (
+            array(
                 'id'    => 3,
                 'title' => 'Baz',
                 'email' => 'baz@bar',
@@ -327,17 +327,17 @@ class Zend_Dojo_DataTest extends PHPUnit\Framework\TestCase
     public function testConstructorShouldSetIdentifierItemsAndLabelWhenPassed()
     {
         $items = array(
-            array (
+            array(
                 'id'    => 1,
                 'title' => 'Foo',
                 'email' => 'foo@bar',
             ),
-            array (
+            array(
                 'id'    => 2,
                 'title' => 'Bar',
                 'email' => 'bar@bar',
             ),
-            array (
+            array(
                 'id'    => 3,
                 'title' => 'Baz',
                 'email' => 'baz@bar',
@@ -439,7 +439,7 @@ class Zend_Dojo_DataTest extends PHPUnit\Framework\TestCase
                 array('id' => 4, 'title' => 'Four', 'name' => 'Fourth'),
             ),
         );
-        $json = Zend_Json::encode($data);
+        $json     = Zend_Json::encode($data);
         $dojoData = new Zend_Dojo_Data();
         $dojoData->fromJson($json);
         $test = $dojoData->toArray();
@@ -538,7 +538,7 @@ class Zend_Dojo_DataTest_DataCollection implements Iterator
     public function __construct()
     {
         for ($i = 1; $i < 4; ++$i) {
-            $item = new Zend_Dojo_DataTest_DataObject;
+            $item             = new Zend_Dojo_DataTest_DataObject;
             $item->item['id'] = $i;
             $item->item['title'] .= $i;
             $this->items[] = $item;

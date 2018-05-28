@@ -213,24 +213,24 @@ class Zend_Dojo_View_Helper_Dojo_Container
      */
     public function setOptions($options)
     {
-        if($options instanceof Zend_Config) {
+        if ($options instanceof Zend_Config) {
             $options = $options->toArray();
         }
 
-        foreach($options as $key => $value) {
+        foreach ($options as $key => $value) {
             $key = strtolower($key);
-            switch($key) {
+            switch ($key) {
                 case 'requiremodules':
                     $this->requireModule($value);
                     break;
                 case 'modulepaths':
-                    foreach($value as $module => $path) {
+                    foreach ($value as $module => $path) {
                         $this->registerModulePath($module, $path);
                     }
                     break;
                 case 'layers':
                     $value = (array) $value;
-                    foreach($value as $layer) {
+                    foreach ($value as $layer) {
                         $this->addLayer($layer);
                     }
                     break;
@@ -251,13 +251,13 @@ class Zend_Dojo_View_Helper_Dojo_Container
                     break;
                 case 'stylesheetmodules':
                     $value = (array) $value;
-                    foreach($value as $module) {
+                    foreach ($value as $module) {
                         $this->addStylesheetModule($module);
                     }
                     break;
                 case 'stylesheets':
                     $value = (array) $value;
-                    foreach($value as $stylesheet) {
+                    foreach ($value as $stylesheet) {
                         $this->addStylesheet($stylesheet);
                     }
                     break;
@@ -265,7 +265,7 @@ class Zend_Dojo_View_Helper_Dojo_Container
                     $this->registerDojoStylesheet($value);
                     break;
                 case 'enable':
-                    if($value) {
+                    if ($value) {
                         $this->enable();
                     } else {
                         $this->disable();
@@ -374,7 +374,7 @@ class Zend_Dojo_View_Helper_Dojo_Container
      */
     public function removeLayer($path)
     {
-        $path = (string) $path;
+        $path   = (string) $path;
         $layers = array_flip($this->_layers);
         if (array_key_exists($path, $layers)) {
             unset($layers[$path]);
@@ -527,7 +527,7 @@ class Zend_Dojo_View_Helper_Dojo_Container
      */
     public function setDjConfigOption($option, $value)
     {
-        $option = (string) $option;
+        $option                   = (string) $option;
         $this->_djConfig[$option] = $value;
         return $this;
     }
@@ -612,7 +612,7 @@ class Zend_Dojo_View_Helper_Dojo_Container
     public function registerDojoStylesheet($flag = null)
     {
         if (null === $flag) {
-             return $this->_registerDojoStylesheet;
+            return $this->_registerDojoStylesheet;
         }
 
         $this->_registerDojoStylesheet = (bool) $flag;
@@ -846,7 +846,7 @@ class Zend_Dojo_View_Helper_Dojo_Container
     public function registerDijitLoader()
     {
         if (!$this->_dijitLoaderRegistered) {
-            $js =<<<EOJ
+            $js = <<<EOJ
 function() {
     dojo.forEach(zendDijits, function(info) {
         var n = dojo.byId(info.id);
@@ -959,7 +959,7 @@ EOJ;
             $this->registerDijitLoader();
         }
 
-        $html  = $this->_renderStylesheets() . PHP_EOL
+        $html = $this->_renderStylesheets() . PHP_EOL
                . $this->_renderDjConfig() . PHP_EOL
                . $this->_renderDojoScriptTag() . PHP_EOL
                . $this->_renderLayers() . PHP_EOL
@@ -975,8 +975,8 @@ EOJ;
     protected function _getLocalRelativePath()
     {
         if (null === $this->_localRelativePath) {
-            $localPath = $this->getLocalPath();
-            $localPath = preg_replace('|[/\\\\]dojo[/\\\\]dojo.js[^/\\\\]*$|i', '', $localPath);
+            $localPath                = $this->getLocalPath();
+            $localPath                = preg_replace('|[/\\\\]dojo[/\\\\]dojo.js[^/\\\\]*$|i', '', $localPath);
             $this->_localRelativePath = $localPath;
         }
         return $this->_localRelativePath;
@@ -1016,7 +1016,7 @@ EOJ;
         }
 
         $stylesheets = array_reverse($stylesheets);
-        $style = '<style type="text/css">' . PHP_EOL
+        $style       = '<style type="text/css">' . PHP_EOL
                . (($this->_isXhtml) ? '<!--' : '<!--') . PHP_EOL;
         foreach ($stylesheets as $stylesheet) {
             $style .= '    @import "' . $stylesheet . '";' . PHP_EOL;
@@ -1108,11 +1108,11 @@ EOJ;
      */
     protected function _renderExtras()
     {
-        $js = array();
+        $js          = array();
         $modulePaths = $this->getModulePaths();
         if (!empty($modulePaths)) {
             foreach ($modulePaths as $module => $path) {
-                $js[] =  'dojo.registerModulePath("' . $this->view->escape($module) . '", "' . $this->view->escape($path) . '");';
+                $js[] = 'dojo.registerModulePath("' . $this->view->escape($module) . '", "' . $this->view->escape($path) . '");';
             }
         }
 

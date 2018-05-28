@@ -72,9 +72,9 @@ class Zend_Dojo_Form_Element_CheckBoxTest extends PHPUnit\Framework\TestCase
         $element = new Zend_Dojo_Form_Element_CheckBox(
             'foo',
             array(
-                'label'          => 'CheckBox',
-                'class'          => 'someclass',
-                'style'          => 'width: 100px;',
+                'label' => 'CheckBox',
+                'class' => 'someclass',
+                'style' => 'width: 100px;',
             )
         );
         return $element;
@@ -94,7 +94,7 @@ class Zend_Dojo_Form_Element_CheckBoxTest extends PHPUnit\Framework\TestCase
     public function testCheckedAttributeRenderedWhenCheckedFlagTrue()
     {
         $this->element->checked = true;
-        $html = $this->element->render();
+        $html                   = $this->element->render();
         $this->assertContains('checked="checked"', $html);
     }
 
@@ -231,8 +231,8 @@ class Zend_Dojo_Form_Element_CheckBoxTest extends PHPUnit\Framework\TestCase
      */
     public function testCheckedValuesCanBePassedInConstructor()
     {
-        $element = new Zend_Dojo_Form_Element_CheckBox('myCheckbox',    array(
-                    'checkedValue' => 'checkedVal',
+        $element = new Zend_Dojo_Form_Element_CheckBox('myCheckbox', array(
+                    'checkedValue'   => 'checkedVal',
                     'unCheckedValue' => 'UNCHECKED',
                 ));
         $element->setView(new Zend_View());

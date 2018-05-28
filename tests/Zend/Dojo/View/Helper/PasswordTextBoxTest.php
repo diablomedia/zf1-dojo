@@ -73,7 +73,7 @@ class Zend_Dojo_View_Helper_PasswordTextBoxTest extends PHPUnit\Framework\TestCa
             'elementId',
             'foobar',
             array(
-                'required'    => true,
+                'required' => true,
             ),
             array()
         );

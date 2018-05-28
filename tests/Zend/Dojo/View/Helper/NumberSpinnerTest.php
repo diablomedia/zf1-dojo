@@ -74,10 +74,10 @@ class Zend_Dojo_View_Helper_NumberSpinnerTest extends PHPUnit\Framework\TestCase
             '5',
             array(
                 'smallDelta' => '10',
-                'min' => 9,
-                'max' => 1550,
-                'places' => 0,
-                'required'    => true,
+                'min'        => 9,
+                'max'        => 1550,
+                'places'     => 0,
+                'required'   => true,
             ),
             array()
         );
@@ -126,7 +126,7 @@ class Zend_Dojo_View_Helper_NumberSpinnerTest extends PHPUnit\Framework\TestCase
         $html = $this->helper->numberSpinner(
             'foo',
             5,
-            array (
+            array(
                 'constraints' => 'bogus',
             )
         );

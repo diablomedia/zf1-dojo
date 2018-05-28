@@ -45,20 +45,20 @@ class Zend_Dojo_View_Helper_Editor extends Zend_Dojo_View_Helper_Dijit
      * @var array Maps non-core plugin to module basename
      */
     protected $_pluginsModules = array(
-        'createLink' => 'LinkDialog',
-        'insertImage' => 'LinkDialog',
-        'fontName' => 'FontChoice',
-        'fontSize' => 'FontChoice',
-        'formatBlock' => 'FontChoice',
-        'foreColor' => 'TextColor',
-        'hiliteColor' => 'TextColor',
+        'createLink'       => 'LinkDialog',
+        'insertImage'      => 'LinkDialog',
+        'fontName'         => 'FontChoice',
+        'fontSize'         => 'FontChoice',
+        'formatBlock'      => 'FontChoice',
+        'foreColor'        => 'TextColor',
+        'hiliteColor'      => 'TextColor',
         'enterKeyHandling' => 'EnterKeyHandling',
-        'fullScreen' => 'FullScreen',
-        'newPage' => 'NewPage',
-        'print' => 'Print',
-        'tabIndent' => 'TabIndent',
-        'toggleDir' => 'ToggleDir',
-        'viewSource' => 'ViewSource'
+        'fullScreen'       => 'FullScreen',
+        'newPage'          => 'NewPage',
+        'print'            => 'Print',
+        'tabIndent'        => 'TabIndent',
+        'toggleDir'        => 'ToggleDir',
+        'viewSource'       => 'ViewSource'
     );
 
     /**
@@ -115,7 +115,7 @@ class Zend_Dojo_View_Helper_Editor extends Zend_Dojo_View_Helper_Dijit
 
         $attribs = $this->_prepareDijit($attribs, $params, 'textarea');
 
-        $html  = '<div' . $this->_htmlAttribs($attribs) . '>'
+        $html = '<div' . $this->_htmlAttribs($attribs) . '>'
                . $value
                . "</div>\n";
 
@@ -125,7 +125,7 @@ class Zend_Dojo_View_Helper_Editor extends Zend_Dojo_View_Helper_Dijit
                . $this->view->formTextarea($hiddenId, $value, $attribs)
                . '</noscript>';
 
-        $html  .= '<input' . $this->_htmlAttribs($hiddenAttribs) . $this->getClosingBracket();
+        $html .= '<input' . $this->_htmlAttribs($hiddenAttribs) . $this->getClosingBracket();
 
         return $html;
     }
@@ -142,7 +142,7 @@ class Zend_Dojo_View_Helper_Editor extends Zend_Dojo_View_Helper_Dijit
         foreach ($plugins as $commandName) {
             if (isset($this->_pluginsModules[$commandName])) {
                 $pluginName = $this->_pluginsModules[$commandName];
-                $modules[] = 'dijit._editor.plugins.' . $pluginName;
+                $modules[]  = 'dijit._editor.plugins.' . $pluginName;
             }
         }
 

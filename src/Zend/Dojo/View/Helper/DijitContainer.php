@@ -80,7 +80,7 @@ abstract class Zend_Dojo_View_Helper_DijitContainer extends Zend_Dojo_View_Helpe
 
         $content = ob_get_clean();
         // These two are extracted below
-        $params = null;
+        $params  = null;
         $attribs = null;
         extract($this->_captureInfo[$id]);
         unset($this->_captureLock[$id], $this->_captureInfo[$id]);

@@ -147,19 +147,19 @@ class Zend_Dojo_Form_Decorator_DijitElement extends Zend_Form_Decorator_ViewHelp
     public function render($content)
     {
         $element = $this->getElement();
-        $view = $element->getView();
+        $view    = $element->getView();
         if (null === $view) {
             throw new Zend_Form_Decorator_Exception('DijitElement decorator cannot render without a registered view object');
         }
 
-        $options = null;
+        $options   = null;
         $helper    = $this->getHelper();
         $separator = $this->getSeparator();
         $value     = $this->getValue($element);
         $attribs   = $this->getElementAttribs();
         $name      = $element->getFullyQualifiedName();
 
-        $dijitParams = $this->getDijitParams();
+        $dijitParams             = $this->getDijitParams();
         $dijitParams['required'] = $element->isRequired();
 
         $id = $element->getId();
@@ -173,7 +173,7 @@ class Zend_Dojo_Form_Decorator_DijitElement extends Zend_Form_Decorator_ViewHelp
         $attribs['id'] = $id;
 
         if (array_key_exists('options', $attribs)) {
-               $options = $attribs['options'];
+            $options = $attribs['options'];
         }
 
         $elementContent = $view->$helper($name, $value, $dijitParams, $attribs, $options);

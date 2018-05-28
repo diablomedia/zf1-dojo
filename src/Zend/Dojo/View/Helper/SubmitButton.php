@@ -52,11 +52,11 @@ class Zend_Dojo_View_Helper_SubmitButton extends Zend_Dojo_View_Helper_Button
         }
         if (empty($params['label']) && !empty($params['content'])) {
             $params['label'] = $params['content'];
-            $value = $params['content'];
+            $value           = $params['content'];
         }
         if (empty($params['label']) && !empty($attribs['content'])) {
             $params['label'] = $attribs['content'];
-            $value = $attribs['content'];
+            $value           = $attribs['content'];
             unset($attribs['content']);
         }
         return $this->_createFormElement($id, $value, $params, $attribs);

@@ -73,7 +73,7 @@ class Zend_Dojo_View_Helper_BorderContainerTest extends PHPUnit\Framework\TestCa
         foreach (array('top', 'bottom', 'center', 'left', 'right') as $pane) {
             $id      = $pane . 'Pane';
             $content = 'This is the content of pane ' . $pane;
-            $html   .= $this->view->contentPane($id, $content, array('region' => $pane));
+            $html .= $this->view->contentPane($id, $content, array('region' => $pane));
         }
         return $this->helper->borderContainer('container', $html, array('design' => 'headline'));
     }

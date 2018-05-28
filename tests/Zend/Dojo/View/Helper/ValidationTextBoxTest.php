@@ -73,8 +73,8 @@ class Zend_Dojo_View_Helper_ValidationTextBoxTest extends PHPUnit\Framework\Test
             'elementId',
             '2008-07-07',
             array(
-                'required'    => true,
-                'regExp'      => '[\w]+',
+                'required' => true,
+                'regExp'   => '[\w]+',
             ),
             array()
         );
@@ -118,8 +118,8 @@ class Zend_Dojo_View_Helper_ValidationTextBoxTest extends PHPUnit\Framework\Test
             'elementId',
             '2008-07-07',
             array(
-                'required'    => false,
-                'regExp'      => '[\w]+',
+                'required' => false,
+                'regExp'   => '[\w]+',
             ),
             array()
         );

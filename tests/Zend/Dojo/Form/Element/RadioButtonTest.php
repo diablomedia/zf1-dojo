@@ -72,10 +72,10 @@ class Zend_Dojo_Form_Element_RadioButtonTest extends PHPUnit\Framework\TestCase
         $element = new Zend_Dojo_Form_Element_RadioButton(
             'foo',
             array(
-                'value' => 'bar',
-                'label' => 'RadioButton',
-                'class' => 'someclass',
-                'style' => 'width: 100px;',
+                'value'        => 'bar',
+                'label'        => 'RadioButton',
+                'class'        => 'someclass',
+                'style'        => 'width: 100px;',
                 'multiOptions' => array(
                     'foo' => 'Foo',
                     'bar' => 'Bar',

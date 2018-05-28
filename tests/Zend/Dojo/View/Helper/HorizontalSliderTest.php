@@ -76,7 +76,7 @@ class Zend_Dojo_View_Helper_HorizontalSliderTest extends PHPUnit\Framework\TestC
                 'minimum'        => -10,
                 'maximum'        => 10,
                 'discreteValues' => 11,
-                'topDecoration' => array(
+                'topDecoration'  => array(
                     'labels' => array(
                         ' ',
                         '20%',
@@ -86,7 +86,7 @@ class Zend_Dojo_View_Helper_HorizontalSliderTest extends PHPUnit\Framework\TestC
                         ' ',
                     ),
                     'container' => 'top',
-                    'attribs' => array(
+                    'attribs'   => array(
                         'container' => array(
                             'style' => 'height:1.2em; font-size=75%;color:gray;',
                         ),
@@ -209,7 +209,7 @@ class Zend_Dojo_View_Helper_HorizontalSliderTest extends PHPUnit\Framework\TestC
                 'minimum'        => -10,
                 'maximum'        => 10,
                 'discreteValues' => 11,
-                'topDecoration' => array(
+                'topDecoration'  => array(
                     'labels' => array(
                         ' ',
                         '20%',
@@ -220,7 +220,7 @@ class Zend_Dojo_View_Helper_HorizontalSliderTest extends PHPUnit\Framework\TestC
                     ),
                     'params' => array(
                         'required' => true,
-                        'labels' => array(
+                        'labels'   => array(
                             'minimum' => 5,
                         )
                     ),
@@ -241,8 +241,8 @@ class Zend_Dojo_View_Helper_HorizontalSliderTest extends PHPUnit\Framework\TestC
         $form->setDecorators(array(
             'FormElements',
             array('TabContainer', array(
-                'id' => 'tabContainer',
-                'style' => 'width: 600px; height: 300px;',
+                'id'          => 'tabContainer',
+                'style'       => 'width: 600px; height: 300px;',
                 'dijitParams' => array(
                     'tabPosition' => 'top'
                 ),
@@ -260,12 +260,12 @@ class Zend_Dojo_View_Helper_HorizontalSliderTest extends PHPUnit\Framework\TestC
                 'HorizontalSlider',
                 'slide1',
                 array(
-                    'label' => 'Slide me:',
-                    'minimum' => 0,
-                    'maximum' => 25,
-                    'discreteValues' => 10,
-                    'style' => 'width: 450px;',
-                    'topDecorationDijit' => 'HorizontalRuleLabels',
+                    'label'               => 'Slide me:',
+                    'minimum'             => 0,
+                    'maximum'             => 25,
+                    'discreteValues'      => 10,
+                    'style'               => 'width: 450px;',
+                    'topDecorationDijit'  => 'HorizontalRuleLabels',
                     'topDecorationLabels' => array('0%', '50%', '100%'),
                     'topDecorationParams' => array('style' => 'padding-bottom: 20px;')
                 )

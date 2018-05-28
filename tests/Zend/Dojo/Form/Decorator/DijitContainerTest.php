@@ -45,8 +45,8 @@ class Zend_Dojo_Form_Decorator_DijitContainerTest extends PHPUnit\Framework\Test
         Zend_Registry::_unsetInstance();
         Zend_Dojo_View_Helper_Dojo::setUseDeclarative();
 
-        $this->errors = array();
-        $this->view   = $this->getView();
+        $this->errors    = array();
+        $this->view      = $this->getView();
         $this->decorator = new Zend_Dojo_Form_Decorator_ContentPane();
         $this->element   = $this->getElement();
         $this->element->setView($this->view);
@@ -74,9 +74,9 @@ class Zend_Dojo_Form_Decorator_DijitContainerTest extends PHPUnit\Framework\Test
     {
         $element = new Zend_Dojo_Form_SubForm();
         $element->setAttribs(array(
-            'name'   => 'foo',
-            'style'  => 'width: 300px; height: 500px;',
-            'class'  => 'someclass',
+            'name'        => 'foo',
+            'style'       => 'width: 300px; height: 500px;',
+            'class'       => 'someclass',
             'dijitParams' => array(
                 'labelAttr' => 'foobar',
                 'typeAttr'  => 'barbaz',
@@ -144,7 +144,7 @@ class Zend_Dojo_Form_Decorator_DijitContainerTest extends PHPUnit\Framework\Test
         $this->view->dojo()->addDijit('foo-ContentPane', array('dojoType' => 'dijit.layout.ContentPane'));
 
         $handler = set_error_handler(array($this, 'handleError'));
-        $html = $this->decorator->render('');
+        $html    = $this->decorator->render('');
         restore_error_handler();
 
         $this->assertNotEmpty($this->errors, var_export($this->errors, 1));
@@ -171,16 +171,16 @@ class Zend_Dojo_Form_Decorator_DijitContainerTest extends PHPUnit\Framework\Test
         $this->expectException(\Zend_Form_Decorator_Exception::class);
 
         $decorator = new Zend_Dojo_Form_Decorator_DijitContainerTest_Example();
-        $helper = $decorator->getHelper();
+        $helper    = $decorator->getHelper();
     }
 
     public function testShouldAllowPassingDijitParamsAsOptions()
     {
         $element = new Zend_Dojo_Form_SubForm();
         $element->setAttribs(array(
-            'name'   => 'foo',
-            'style'  => 'width: 300px; height: 500px;',
-            'class'  => 'someclass',
+            'name'  => 'foo',
+            'style' => 'width: 300px; height: 500px;',
+            'class' => 'someclass',
         ));
         $dijitParams = array(
             'labelAttr' => 'foobar',

@@ -35,7 +35,7 @@ class Zend_Dojo_View_Helper_NumberTextBox extends Zend_Dojo_View_Helper_Dijit
      * Dijit being used
      * @var string
      */
-    protected $_dijit  = 'dijit.form.NumberTextBox';
+    protected $_dijit = 'dijit.form.NumberTextBox';
 
     /**
      * HTML element type

@@ -75,12 +75,12 @@ class Zend_Dojo_View_Helper_FilteringSelectTest extends PHPUnit\Framework\TestCa
             array(),
             array(),
             array(
-                'red' => 'Rouge',
-                'blue' => 'Bleu',
-                'white' => 'Blanc',
+                'red'    => 'Rouge',
+                'blue'   => 'Bleu',
+                'white'  => 'Blanc',
                 'orange' => 'Orange',
-                'black' => 'Noir',
-                'green' => 'Vert',
+                'black'  => 'Noir',
+                'green'  => 'Vert',
             )
         );
     }
@@ -92,8 +92,8 @@ class Zend_Dojo_View_Helper_FilteringSelectTest extends PHPUnit\Framework\TestCa
             'someCombo',
             array(
                 'store' => array(
-                    'store' => 'stateStore',
-                    'type' => 'dojo.data.ItemFileReadStore',
+                    'store'  => 'stateStore',
+                    'type'   => 'dojo.data.ItemFileReadStore',
                     'params' => array(
                         'url' => 'states.txt'
                     )
@@ -137,7 +137,7 @@ class Zend_Dojo_View_Helper_FilteringSelectTest extends PHPUnit\Framework\TestCa
 
         $this->assertContains('var stateStore;', $this->view->dojo()->getJavascript());
 
-        $found = false;
+        $found   = false;
         $scripts = $this->view->dojo()->_getZendLoadActions();
         foreach ($scripts as $js) {
             if (strstr($js, 'stateStore = new ')) {

@@ -35,7 +35,7 @@ class Zend_Dojo_View_Helper_TabContainer extends Zend_Dojo_View_Helper_DijitCont
      * Dijit being used
      * @var string
      */
-    protected $_dijit  = 'dijit.layout.TabContainer';
+    protected $_dijit = 'dijit.layout.TabContainer';
 
     /**
      * Dojo module to use

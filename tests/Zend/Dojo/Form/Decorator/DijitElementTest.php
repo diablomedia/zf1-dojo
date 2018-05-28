@@ -45,8 +45,8 @@ class Zend_Dojo_Form_Decorator_DijitElementTest extends PHPUnit\Framework\TestCa
         Zend_Registry::_unsetInstance();
         Zend_Dojo_View_Helper_Dojo::setUseDeclarative();
 
-        $this->errors = array();
-        $this->view   = $this->getView();
+        $this->errors    = array();
+        $this->view      = $this->getView();
         $this->decorator = new Zend_Dojo_Form_Decorator_DijitElement();
         $this->element   = $this->getElement();
         $this->element->setView($this->view);
@@ -75,12 +75,12 @@ class Zend_Dojo_Form_Decorator_DijitElementTest extends PHPUnit\Framework\TestCa
         $element = new Zend_Dojo_Form_Element_TextBox(
             'foo',
             array(
-                'value' => 'some text',
-                'label' => 'TextBox',
-                'trim'  => true,
+                'value'      => 'some text',
+                'label'      => 'TextBox',
+                'trim'       => true,
                 'propercase' => true,
-                'class' => 'someclass',
-                'style' => 'width: 100px;',
+                'class'      => 'someclass',
+                'style'      => 'width: 100px;',
             )
         );
         return $element;
@@ -128,7 +128,7 @@ class Zend_Dojo_Form_Decorator_DijitElementTest extends PHPUnit\Framework\TestCa
         $this->view->dojo()->addDijit('foo', array('dojoType' => 'dijit.form.TextBox'));
 
         $handler = set_error_handler(array($this, 'handleError'));
-        $html = $this->decorator->render('');
+        $html    = $this->decorator->render('');
         restore_error_handler();
         $this->assertNotEmpty($this->errors, var_export($this->errors, 1));
         $found = false;
@@ -157,12 +157,12 @@ class Zend_Dojo_Form_Decorator_DijitElementTest extends PHPUnit\Framework\TestCa
         $element = new Zend_Dojo_Form_Element_TextBox(
             'foo',
             array(
-                'value' => 'some text',
-                'label' => 'TextBox',
-                'trim'  => true,
+                'value'      => 'some text',
+                'label'      => 'TextBox',
+                'trim'       => true,
                 'propercase' => true,
-                'class' => 'someclass',
-                'style' => 'width: 100px;',
+                'class'      => 'someclass',
+                'style'      => 'width: 100px;',
             )
         );
         $this->decorator->setElement($element);

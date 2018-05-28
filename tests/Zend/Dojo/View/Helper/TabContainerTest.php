@@ -73,7 +73,7 @@ class Zend_Dojo_View_Helper_TabContainerTest extends PHPUnit\Framework\TestCase
         foreach (array('top', 'bottom', 'center', 'left', 'right') as $pane) {
             $id      = $pane . 'Pane';
             $content = 'This is the content of pane ' . $pane;
-            $html   .= $this->view->contentPane($id, $content, array('region' => $pane));
+            $html .= $this->view->contentPane($id, $content, array('region' => $pane));
         }
         return $this->helper->tabContainer('container', $html, array('design' => 'headline'));
     }

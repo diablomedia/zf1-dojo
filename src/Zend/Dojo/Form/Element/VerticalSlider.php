@@ -58,7 +58,7 @@ class Zend_Dojo_Form_Element_VerticalSlider extends Zend_Dojo_Form_Element_Slide
      */
     public function setLeftDecorationDijit($dijit)
     {
-        $decoration = $this->getLeftDecoration();
+        $decoration          = $this->getLeftDecoration();
         $decoration['dijit'] = (string) $dijit;
         $this->setDijitParam('leftDecoration', $decoration);
         return $this;
@@ -72,7 +72,7 @@ class Zend_Dojo_Form_Element_VerticalSlider extends Zend_Dojo_Form_Element_Slide
      */
     public function setLeftDecorationContainer($container)
     {
-        $decoration = $this->getLeftDecoration();
+        $decoration              = $this->getLeftDecoration();
         $decoration['container'] = (string) $container;
         $this->setDijitParam('leftDecoration', $decoration);
         return $this;
@@ -86,7 +86,7 @@ class Zend_Dojo_Form_Element_VerticalSlider extends Zend_Dojo_Form_Element_Slide
      */
     public function setLeftDecorationLabels(array $labels)
     {
-        $decoration = $this->getLeftDecoration();
+        $decoration           = $this->getLeftDecoration();
         $decoration['labels'] = array_values($labels);
         $this->setDijitParam('leftDecoration', $decoration);
         return $this;
@@ -100,7 +100,7 @@ class Zend_Dojo_Form_Element_VerticalSlider extends Zend_Dojo_Form_Element_Slide
      */
     public function setLeftDecorationParams(array $params)
     {
-        $decoration = $this->getLeftDecoration();
+        $decoration           = $this->getLeftDecoration();
         $decoration['params'] = $params;
         $this->setDijitParam('leftDecoration', $decoration);
         return $this;
@@ -114,7 +114,7 @@ class Zend_Dojo_Form_Element_VerticalSlider extends Zend_Dojo_Form_Element_Slide
      */
     public function setLeftDecorationAttribs(array $attribs)
     {
-        $decoration = $this->getLeftDecoration();
+        $decoration            = $this->getLeftDecoration();
         $decoration['attribs'] = $attribs;
         $this->setDijitParam('leftDecoration', $decoration);
         return $this;
@@ -141,7 +141,7 @@ class Zend_Dojo_Form_Element_VerticalSlider extends Zend_Dojo_Form_Element_Slide
      */
     public function setRightDecorationDijit($dijit)
     {
-        $decoration = $this->getRightDecoration();
+        $decoration          = $this->getRightDecoration();
         $decoration['dijit'] = (string) $dijit;
         $this->setDijitParam('rightDecoration', $decoration);
         return $this;
@@ -155,7 +155,7 @@ class Zend_Dojo_Form_Element_VerticalSlider extends Zend_Dojo_Form_Element_Slide
      */
     public function setRightDecorationContainer($container)
     {
-        $decoration = $this->getRightDecoration();
+        $decoration              = $this->getRightDecoration();
         $decoration['container'] = (string) $container;
         $this->setDijitParam('rightDecoration', $decoration);
         return $this;
@@ -169,7 +169,7 @@ class Zend_Dojo_Form_Element_VerticalSlider extends Zend_Dojo_Form_Element_Slide
      */
     public function setRightDecorationLabels(array $labels)
     {
-        $decoration = $this->getRightDecoration();
+        $decoration           = $this->getRightDecoration();
         $decoration['labels'] = array_values($labels);
         $this->setDijitParam('rightDecoration', $decoration);
         return $this;
@@ -183,7 +183,7 @@ class Zend_Dojo_Form_Element_VerticalSlider extends Zend_Dojo_Form_Element_Slide
      */
     public function setRightDecorationParams(array $params)
     {
-        $decoration = $this->getRightDecoration();
+        $decoration           = $this->getRightDecoration();
         $decoration['params'] = $params;
         $this->setDijitParam('rightDecoration', $decoration);
         return $this;
@@ -197,7 +197,7 @@ class Zend_Dojo_Form_Element_VerticalSlider extends Zend_Dojo_Form_Element_Slide
      */
     public function setRightDecorationAttribs(array $attribs)
     {
-        $decoration = $this->getRightDecoration();
+        $decoration            = $this->getRightDecoration();
         $decoration['attribs'] = $attribs;
         $this->setDijitParam('rightDecoration', $decoration);
         return $this;

@@ -35,7 +35,7 @@ class Zend_Dojo_View_Helper_SplitContainer extends Zend_Dojo_View_Helper_DijitCo
      * Dijit being used
      * @var string
      */
-    protected $_dijit  = 'dijit.layout.SplitContainer';
+    protected $_dijit = 'dijit.layout.SplitContainer';
 
     /**
      * Dojo module to use

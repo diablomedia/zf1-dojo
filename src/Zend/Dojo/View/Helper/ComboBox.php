@@ -35,7 +35,7 @@ class Zend_Dojo_View_Helper_ComboBox extends Zend_Dojo_View_Helper_Dijit
      * Dijit being used
      * @var string
      */
-    protected $_dijit  = 'dijit.form.ComboBox';
+    protected $_dijit = 'dijit.form.ComboBox';
 
     /**
      * HTML element type
@@ -97,7 +97,7 @@ class Zend_Dojo_View_Helper_ComboBox extends Zend_Dojo_View_Helper_Dijit
             return $html;
         }
 
-        // required for correct type casting in declerative mode 
+        // required for correct type casting in declerative mode
         if (isset($params['autocomplete'])) {
             $params['autocomplete'] = ($params['autocomplete']) ? 'true' : 'false';
         }
@@ -138,7 +138,7 @@ class Zend_Dojo_View_Helper_ComboBox extends Zend_Dojo_View_Helper_Dijit
                 $this->dojo->addJavascript('var ' . $storeParams['jsId'] . ";\n");
                 $js = $storeParams['jsId'] . ' = '
                     . 'new ' . $storeParams['dojoType'] . '('
-                    .     Zend_Json::encode($extraParams)
+                    . Zend_Json::encode($extraParams)
                     . ");\n";
                 $js = "function() {\n$js\n}";
                 $this->dojo->_addZendLoad($js);

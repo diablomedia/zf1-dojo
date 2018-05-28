@@ -35,7 +35,7 @@ class Zend_Dojo_View_Helper_TimeTextBox extends Zend_Dojo_View_Helper_Dijit
      * Dijit being used
      * @var string
      */
-    protected $_dijit  = 'dijit.form.TimeTextBox';
+    protected $_dijit = 'dijit.form.TimeTextBox';
 
     /**
      * HTML element type

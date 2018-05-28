@@ -35,7 +35,7 @@ class Zend_Dojo_View_Helper_ValidationTextBox extends Zend_Dojo_View_Helper_Diji
      * Dijit being used
      * @var string
      */
-    protected $_dijit  = 'dijit.form.ValidationTextBox';
+    protected $_dijit = 'dijit.form.ValidationTextBox';
 
     /**
      * HTML element type

@@ -29,7 +29,7 @@
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Zend_Dojo_Data implements ArrayAccess,Iterator,Countable
+class Zend_Dojo_Data implements ArrayAccess, Iterator, Countable
 {
     /**
      * Identifier field of item
@@ -97,7 +97,7 @@ class Zend_Dojo_Data implements ArrayAccess,Iterator,Countable
      */
     public function setItem($item, $id = null)
     {
-        $item = $this->_normalizeItem($item, $id);
+        $item                      = $this->_normalizeItem($item, $id);
         $this->_items[$item['id']] = $item['data'];
         return $this;
     }

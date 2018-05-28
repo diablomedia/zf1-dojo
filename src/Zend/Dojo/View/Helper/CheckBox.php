@@ -35,7 +35,7 @@ class Zend_Dojo_View_Helper_CheckBox extends Zend_Dojo_View_Helper_Dijit
      * Dijit being used
      * @var string
      */
-    protected $_dijit  = 'dijit.form.CheckBox';
+    protected $_dijit = 'dijit.form.CheckBox';
 
     /**
      * Element type
@@ -68,7 +68,7 @@ class Zend_Dojo_View_Helper_CheckBox extends Zend_Dojo_View_Helper_Dijit
         } elseif (isset($attribs['checked'])) {
             $checked = false;
         }
-        $checkboxInfo = Zend_View_Helper_FormCheckbox::determineCheckboxInfo($value, $checked, $checkedOptions);
+        $checkboxInfo       = Zend_View_Helper_FormCheckbox::determineCheckboxInfo($value, $checked, $checkedOptions);
         $attribs['checked'] = $checkboxInfo['checked'];
         if (!array_key_exists('id', $attribs)) {
             $attribs['id'] = $id;

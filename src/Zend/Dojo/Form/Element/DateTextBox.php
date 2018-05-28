@@ -79,7 +79,7 @@ class Zend_Dojo_Form_Element_DateTextBox extends Zend_Dojo_Form_Element_Validati
         if (!$this->hasConstraint('am,pm')) {
             return false;
         }
-        return ('true' ==$this->getConstraint('am,pm'));
+        return ('true' == $this->getConstraint('am,pm'));
     }
 
     /**

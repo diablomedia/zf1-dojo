@@ -45,7 +45,7 @@ class Zend_Dojo_Form_Element_Editor extends Zend_Dojo_Form_Element_Dijit
      */
     public function addCaptureEvent($event)
     {
-        $event = (string) $event;
+        $event         = (string) $event;
         $captureEvents = $this->getCaptureEvents();
         if (in_array($event, $captureEvents)) {
             return $this;
@@ -116,7 +116,7 @@ class Zend_Dojo_Form_Element_Editor extends Zend_Dojo_Form_Element_Dijit
      */
     public function removeCaptureEvent($event)
     {
-        $event = (string) $event;
+        $event         = (string) $event;
         $captureEvents = $this->getCaptureEvents();
         if (false === ($index = array_search($event, $captureEvents))) {
             return $this;
@@ -144,7 +144,7 @@ class Zend_Dojo_Form_Element_Editor extends Zend_Dojo_Form_Element_Dijit
      */
     public function addEvent($event)
     {
-        $event = (string) $event;
+        $event  = (string) $event;
         $events = $this->getEvents();
         if (in_array($event, $events)) {
             return $this;
@@ -242,7 +242,7 @@ class Zend_Dojo_Form_Element_Editor extends Zend_Dojo_Form_Element_Dijit
      */
     public function addPlugin($plugin)
     {
-        $plugin = (string) $plugin;
+        $plugin  = (string) $plugin;
         $plugins = $this->getPlugins();
         if (in_array($plugin, $plugins) && $plugin !== '|') {
             return $this;
@@ -375,7 +375,7 @@ class Zend_Dojo_Form_Element_Editor extends Zend_Dojo_Form_Element_Dijit
     public function getFocusOnLoad()
     {
         if (!$this->hasDijitParam('focusOnLoad')) {
-             return false;
+            return false;
         }
         return $this->getDijitParam('focusOnLoad');
     }
@@ -587,7 +587,7 @@ class Zend_Dojo_Form_Element_Editor extends Zend_Dojo_Form_Element_Dijit
     public function getUpdateInterval()
     {
         if (!$this->hasDijitParam('updateInterval')) {
-             return 200;
+            return 200;
         }
         return $this->getDijitParam('updateInterval');
     }
@@ -600,7 +600,7 @@ class Zend_Dojo_Form_Element_Editor extends Zend_Dojo_Form_Element_Dijit
      */
     public function addExtraPlugin($plugin)
     {
-        $plugin = (string) $plugin;
+        $plugin       = (string) $plugin;
         $extraPlugins = $this->getExtraPlugins();
         if (in_array($plugin, $extraPlugins)) {
             return $this;

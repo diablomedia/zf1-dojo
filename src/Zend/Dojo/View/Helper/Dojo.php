@@ -36,7 +36,7 @@ class Zend_Dojo_View_Helper_Dojo
     /**#@+
      * Programmatic dijit creation style constants
      */
-    const PROGRAMMATIC_SCRIPT = 1;
+    const PROGRAMMATIC_SCRIPT   = 1;
     const PROGRAMMATIC_NOSCRIPT = -1;
     /**#@-*/
 
@@ -67,7 +67,7 @@ class Zend_Dojo_View_Helper_Dojo
     {
         $registry = Zend_Registry::getInstance();
         if (!isset($registry[__CLASS__])) {
-            $container = new Zend_Dojo_View_Helper_Dojo_Container();
+            $container           = new Zend_Dojo_View_Helper_Dojo_Container();
             $registry[__CLASS__] = $container;
         }
         $this->_container = $registry[__CLASS__];

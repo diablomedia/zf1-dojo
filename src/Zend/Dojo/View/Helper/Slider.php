@@ -72,16 +72,16 @@ abstract class Zend_Dojo_View_Helper_Slider extends Zend_Dojo_View_Helper_Dijit
             }
         }
 
-        $content = '';
+        $content          = '';
         $attribs['value'] = $value;
 
         if (!array_key_exists('onChange', $attribs)) {
             $attribs['onChange'] = "dojo.byId('" . $id . "').value = arguments[0];";
         }
 
-        $id  = str_replace('][', '-', $id);
-        $id  = str_replace(array('[', ']'), '-', $id);
-        $id  = rtrim($id, '-');
+        $id = str_replace('][', '-', $id);
+        $id = str_replace(array('[', ']'), '-', $id);
+        $id = rtrim($id, '-');
         $id .= '-slider';
 
         switch ($this->_sliderType) {
@@ -211,10 +211,10 @@ abstract class Zend_Dojo_View_Helper_Slider extends Zend_Dojo_View_Helper_Dijit
 
         $labelList = $this->_prepareLabelsList($id, $labelsParams, $labelsAttribs, $labels);
 
-        $dijit = 'dijit.form.' . ucfirst($this->_sliderType) . 'Rule';
+        $dijit                  = 'dijit.form.' . ucfirst($this->_sliderType) . 'Rule';
         $containerAttribs['id'] = $id;
-        $containerAttribs = $this->_prepareDijit($containerAttribs, $containerParams, 'layout', $dijit);
-        $containerHtml = '<div' . $this->_htmlAttribs($containerAttribs) . "></div>\n";
+        $containerAttribs       = $this->_prepareDijit($containerAttribs, $containerParams, 'layout', $dijit);
+        $containerHtml          = '<div' . $this->_htmlAttribs($containerAttribs) . "></div>\n";
 
         switch ($position) {
             case 'topDecoration':
@@ -238,8 +238,8 @@ abstract class Zend_Dojo_View_Helper_Slider extends Zend_Dojo_View_Helper_Dijit
     protected function _prepareLabelsList($id, array $params, array $attribs, array $labels)
     {
         $attribs['id'] = $id . '-labels';
-        $dijit = 'dijit.form.' . ucfirst($this->_sliderType) . 'RuleLabels';
-        $attribs = $this->_prepareDijit($attribs, $params, 'layout', $dijit);
+        $dijit         = 'dijit.form.' . ucfirst($this->_sliderType) . 'RuleLabels';
+        $attribs       = $this->_prepareDijit($attribs, $params, 'layout', $dijit);
 
         return $this->view->htmlList($labels, true, $attribs);
     }

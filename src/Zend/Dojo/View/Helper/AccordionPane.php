@@ -35,7 +35,7 @@ class Zend_Dojo_View_Helper_AccordionPane extends Zend_Dojo_View_Helper_DijitCon
      * Dijit being used
      * @var string
      */
-    protected $_dijit  = 'dijit.layout.AccordionPane';
+    protected $_dijit = 'dijit.layout.AccordionPane';
 
     /**
      * Module being used

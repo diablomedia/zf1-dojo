@@ -66,7 +66,7 @@ abstract class Zend_Dojo_Form_Element_Dijit extends Zend_Form_Element
      */
     public function setDijitParam($key, $value)
     {
-        $key = (string) $key;
+        $key                     = (string) $key;
         $this->dijitParams[$key] = $value;
         return $this;
     }

@@ -66,7 +66,7 @@ class Zend_Dojo_BuildLayerTest extends PHPUnit\Framework\TestCase
 
     public function testDojoHelperShouldBeRetrievedFromViewObjectIfNotExplicitySet()
     {
-        $build = new Zend_Dojo_BuildLayer(array('view' => $this->view));
+        $build  = new Zend_Dojo_BuildLayer(array('view' => $this->view));
         $helper = $build->getDojoHelper();
         $this->assertTrue($helper instanceof Zend_Dojo_View_Helper_Dojo_Container);
     }
@@ -179,8 +179,8 @@ class Zend_Dojo_BuildLayerTest extends PHPUnit\Framework\TestCase
                            ->requireModule('dijit.form.Button')
                            ->addOnLoad('custom.callback');
         $build = new Zend_Dojo_BuildLayer(array(
-            'view'          => $this->view,
-            'layerName'     => 'foo.bar',
+            'view'      => $this->view,
+            'layerName' => 'foo.bar',
         ));
 
         $test   = $build->generateLayerScript();
@@ -218,8 +218,8 @@ class Zend_Dojo_BuildLayerTest extends PHPUnit\Framework\TestCase
                            ->requireModule('dijit.form.Button')
                            ->addJavascript('custom.callback();');
         $build = new Zend_Dojo_BuildLayer(array(
-            'view'          => $this->view,
-            'layerName'     => 'foo.bar',
+            'view'      => $this->view,
+            'layerName' => 'foo.bar',
         ));
 
         $test   = $build->generateLayerScript();
@@ -232,16 +232,16 @@ class Zend_Dojo_BuildLayerTest extends PHPUnit\Framework\TestCase
 
     public function testProfileOptionsShouldIncludeSaneDefaultsByDefault()
     {
-        $build = new Zend_Dojo_BuildLayer();
+        $build    = new Zend_Dojo_BuildLayer();
         $expected = $this->getDefaultProfileOptions();
-        $options = $build->getProfileOptions();
+        $options  = $build->getProfileOptions();
         $this->assertEquals($expected, $options);
     }
 
     public function testAddProfileOptionsShouldAddOptions()
     {
         $options = array('foo' => 'bar');
-        $build = new Zend_Dojo_BuildLayer(array(
+        $build   = new Zend_Dojo_BuildLayer(array(
             'profileOptions' => $options,
         ));
         $build->addProfileOptions(array('bar' => 'baz'));
@@ -259,7 +259,7 @@ class Zend_Dojo_BuildLayerTest extends PHPUnit\Framework\TestCase
     public function testSetProfileOptionsShouldNotOverwriteOptions()
     {
         $options = array('foo' => 'bar');
-        $build = new Zend_Dojo_BuildLayer(array(
+        $build   = new Zend_Dojo_BuildLayer(array(
             'profileOptions' => $options,
         ));
         $build->setProfileOptions(array('bar' => 'baz'));
@@ -269,14 +269,14 @@ class Zend_Dojo_BuildLayerTest extends PHPUnit\Framework\TestCase
 
     public function testProfilePrefixesAreEmptyByDefault()
     {
-        $build = new Zend_Dojo_BuildLayer();
+        $build    = new Zend_Dojo_BuildLayer();
         $prefixes = $build->getProfilePrefixes();
         $this->assertEmpty($prefixes);
     }
 
     public function testProfilePrefixesIncludeLayerNamePrefix()
     {
-        $build = new Zend_Dojo_BuildLayer(array('layerName' => 'foo.main'));
+        $build    = new Zend_Dojo_BuildLayer(array('layerName' => 'foo.main'));
         $prefixes = $build->getProfilePrefixes();
         $this->assertArrayHasKey('foo', $prefixes, var_export($prefixes, 1));
         $this->assertEquals(array('foo', '../foo'), $prefixes['foo']);

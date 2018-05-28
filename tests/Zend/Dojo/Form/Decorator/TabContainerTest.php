@@ -45,7 +45,7 @@ class Zend_Dojo_Form_Decorator_TabContainerTest extends PHPUnit\Framework\TestCa
         Zend_Registry::_unsetInstance();
         Zend_Dojo_View_Helper_Dojo::setUseDeclarative();
 
-        $this->view   = $this->getView();
+        $this->view      = $this->getView();
         $this->decorator = new Zend_Dojo_Form_Decorator_TabContainer();
         $this->element   = $this->getElement();
         $this->element->setView($this->view);
@@ -73,9 +73,9 @@ class Zend_Dojo_Form_Decorator_TabContainerTest extends PHPUnit\Framework\TestCa
     {
         $element = new Zend_Dojo_Form();
         $element->setAttribs(array(
-            'name'   => 'foo',
-            'style'  => 'width: 300px; height: 500px;',
-            'class'  => 'someclass',
+            'name'        => 'foo',
+            'style'       => 'width: 300px; height: 500px;',
+            'class'       => 'someclass',
             'dijitParams' => array(
                 'labelAttr' => 'foobar',
                 'typeAttr'  => 'barbaz',

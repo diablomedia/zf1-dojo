@@ -74,7 +74,7 @@ class Zend_Dojo_View_Helper_AccordionContainerTest extends PHPUnit\Framework\Tes
             $id      = 'pane' . $i;
             $title   = 'Pane ' . $i;
             $content = 'This is the content of pane ' . $i;
-            $html   .= $this->view->accordionPane($id, $content, array('title' => $title));
+            $html .= $this->view->accordionPane($id, $content, array('title' => $title));
         }
         return $this->helper->accordionContainer('container', $html, array(), array('style' => 'height: 200px; width: 100px;'));
     }

@@ -180,8 +180,8 @@ abstract class Zend_Dojo_Form_Decorator_DijitContainer extends Zend_Form_Decorat
             unset($attribs['legend']);
         }
 
-        $helper      = $this->getHelper();
-        $id          = $element->getId() . '-' . $helper;
+        $helper = $this->getHelper();
+        $id     = $element->getId() . '-' . $helper;
 
         if ($view->dojo()->hasDijit($id)) {
             trigger_error(sprintf('Duplicate dijit ID detected for id "%s; temporarily generating uniqid"', $id), E_USER_WARNING);

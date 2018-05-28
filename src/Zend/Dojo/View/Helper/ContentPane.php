@@ -35,7 +35,7 @@ class Zend_Dojo_View_Helper_ContentPane extends Zend_Dojo_View_Helper_DijitConta
      * Dijit being used
      * @var string
      */
-    protected $_dijit  = 'dijit.layout.ContentPane';
+    protected $_dijit = 'dijit.layout.ContentPane';
 
     /**
      * Module being used

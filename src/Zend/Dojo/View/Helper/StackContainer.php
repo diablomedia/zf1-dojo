@@ -35,7 +35,7 @@ class Zend_Dojo_View_Helper_StackContainer extends Zend_Dojo_View_Helper_DijitCo
      * Dijit being used
      * @var string
      */
-    protected $_dijit  = 'dijit.layout.StackContainer';
+    protected $_dijit = 'dijit.layout.StackContainer';
 
     /**
      * Dojo module to use

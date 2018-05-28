@@ -35,7 +35,7 @@ class Zend_Dojo_View_Helper_FilteringSelect extends Zend_Dojo_View_Helper_ComboB
      * Dijit being used
      * @var string
      */
-    protected $_dijit  = 'dijit.form.FilteringSelect';
+    protected $_dijit = 'dijit.form.FilteringSelect';
 
     /**
      * Dojo module to use

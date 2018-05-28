@@ -35,7 +35,7 @@ class Zend_Dojo_View_Helper_VerticalSlider extends Zend_Dojo_View_Helper_Slider
      * Dijit being used
      * @var string
      */
-    protected $_dijit  = 'dijit.form.VerticalSlider';
+    protected $_dijit = 'dijit.form.VerticalSlider';
 
     /**
      * Slider type

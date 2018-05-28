@@ -35,7 +35,7 @@ class Zend_Dojo_View_Helper_BorderContainer extends Zend_Dojo_View_Helper_DijitC
      * Dijit being used
      * @var string
      */
-    protected $_dijit  = 'dijit.layout.BorderContainer';
+    protected $_dijit = 'dijit.layout.BorderContainer';
 
     /**
      * Dojo module to use

@@ -415,7 +415,7 @@ function() {
         $html = $this->helper->__toString();
         $doc  = new DOMDocument;
         $doc->loadHTML($html);
-        $xPath = new DOMXPath($doc);
+        $xPath   = new DOMXPath($doc);
         $results = $xPath->query('//script');
         $this->assertEquals(3, $results->length);
         for ($i = 0; $i < 3; ++$i) {
@@ -620,7 +620,7 @@ function() {
         $array = Zend_Json::decode($json);
         $this->assertInternalType('array', $array);
 
-        $keys  = array();
+        $keys = array();
         foreach ($array as $dijit) {
             $keys[] = $dijit['id'];
             $this->assertArrayHasKey('params', $dijit);
@@ -652,10 +652,10 @@ function() {
     {
         $this->helper->enable();
         $this->helper->addJavascript('var foo = "bar";');
-        $html = $this->helper->__toString();
+        $html  = $this->helper->__toString();
         $found = false;
         if (preg_match_all('|<script[^>]*>(.*?)(</script>)|s', $html, $m)) {
-            foreach ($m[1] as $script)  {
+            foreach ($m[1] as $script) {
                 if (strstr($script, 'var foo = "bar";')) {
                     $found = true;
                     break;
@@ -751,7 +751,7 @@ function() {
         $html = $this->helper->__toString();
         $doc  = new DOMDocument;
         $doc->loadHTML($html);
-        $xPath = new DOMXPath($doc);
+        $xPath   = new DOMXPath($doc);
         $results = $xPath->query('//script');
 
         $found = array();
@@ -845,17 +845,18 @@ function() {
         $this->assertRegExp('/zendDijits.*?(zend\.custom)/s', $test, 'Generated markup: ' . $test);
     }
 
-    public function testDojoViewHelperContainerAddOptionsPassesOnAllStringOptions() {
-        $helper = $this->helper;
+    public function testDojoViewHelperContainerAddOptionsPassesOnAllStringOptions()
+    {
+        $helper  = $this->helper;
         $options = array(
-            'requireModules' => 'ZfTestRequiredModule',
-            'laYers' => '_added_layer_',
-            'cdnBase' => 'ZF-RLZ',
-            'cdnVersion' => '1.9.5',
-            'cdnDojoPath' => '_cdn_dojo_path_',
-            'localPath' => '/srv/ZF/dojo/',
-            'stylesheetmodules' => 'test.stylesheet.module',
-            'stylesheets' => 'someStyleSheet',
+            'requireModules'         => 'ZfTestRequiredModule',
+            'laYers'                 => '_added_layer_',
+            'cdnBase'                => 'ZF-RLZ',
+            'cdnVersion'             => '1.9.5',
+            'cdnDojoPath'            => '_cdn_dojo_path_',
+            'localPath'              => '/srv/ZF/dojo/',
+            'stylesheetmodules'      => 'test.stylesheet.module',
+            'stylesheets'            => 'someStyleSheet',
             'registerdojostylesheet' => true
         );
 
@@ -872,19 +873,20 @@ function() {
         $this->assertTrue($helper->registerDojoStylesheet());
     }
 
-    public function testDojoViewHelperContainerAddOptionsPassesOnAllArrayOptions() {
-        $helper = $this->helper;
-        $modulePaths = array('module1' => 'path1', 'module2' => 'path2');
-        $layers = array('layer_two','layer_three');
-        $djConfig = array('foo1' => 'bar1', 'foo2' => 'bar2');
+    public function testDojoViewHelperContainerAddOptionsPassesOnAllArrayOptions()
+    {
+        $helper         = $this->helper;
+        $modulePaths    = array('module1' => 'path1', 'module2' => 'path2');
+        $layers         = array('layer_two','layer_three');
+        $djConfig       = array('foo1' => 'bar1', 'foo2' => 'bar2');
         $stylesheetMods = array('test.one.style', 'test.two.style');
-        $stylesheets = array('style1', 'style2');
-        $options = array(
-            'modulePaths'   => $modulePaths,
-            'layers'        => $layers,
-            'djConfig'      => $djConfig,
-            'styleShEEtModules' => $stylesheetMods,
-            'stylesheets'   => $stylesheets,
+        $stylesheets    = array('style1', 'style2');
+        $options        = array(
+            'modulePaths'            => $modulePaths,
+            'layers'                 => $layers,
+            'djConfig'               => $djConfig,
+            'styleShEEtModules'      => $stylesheetMods,
+            'stylesheets'            => $stylesheets,
             'registerdojostylesheet' => false
         );
 
@@ -900,10 +902,12 @@ function() {
 
     public function testJsonExpressionRenders()
     {
-        $this->helper->addDijit('foo',
+        $this->helper->addDijit(
+            'foo',
                 array('dojoType' => 'dijit.form.TextBox',
                       'onChange' => new Zend_Json_Expr('function(){alert(\'foo\');}'),
-                      ));
+                      )
+        );
         $output = $this->helper->dijitsToJson();
         $this->assertRegExp('#(function\\(\\){alert\\(\'foo\'\\);})#', $output);
     }
@@ -913,7 +917,7 @@ function() {
      */
     public function testRenderStylesheetsOrder()
     {
-        $helper = $this->helper;
+        $helper  = $this->helper;
         $options = array(
             'localPath'              => '',
             'stylesheetmodules'      => 'test.stylesheet.module',

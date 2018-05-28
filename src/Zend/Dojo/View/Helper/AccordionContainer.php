@@ -35,7 +35,7 @@ class Zend_Dojo_View_Helper_AccordionContainer extends Zend_Dojo_View_Helper_Dij
      * Dijit being used
      * @var string
      */
-    protected $_dijit  = 'dijit.layout.AccordionContainer';
+    protected $_dijit = 'dijit.layout.AccordionContainer';
 
     /**
      * Dojo module to use

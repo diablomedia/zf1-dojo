@@ -148,10 +148,10 @@ abstract class Zend_Dojo_View_Helper_Dijit extends Zend_View_Helper_HtmlElement
     protected function _createLayoutContainer($id, $content, array $params, array $attribs, $dijit = null)
     {
         $attribs['id'] = $id;
-        $attribs = $this->_prepareDijit($attribs, $params, 'layout', $dijit);
+        $attribs       = $this->_prepareDijit($attribs, $params, 'layout', $dijit);
 
         $nodeType = $this->getRootNode();
-        $html = '<' . $nodeType . $this->_htmlAttribs($attribs) . '>'
+        $html     = '<' . $nodeType . $this->_htmlAttribs($attribs) . '>'
               . $content
               . "</$nodeType>\n";
 
@@ -231,7 +231,6 @@ abstract class Zend_Dojo_View_Helper_Dijit extends Zend_View_Helper_HtmlElement
         // Normalize constraints, if present
         foreach ($this->_jsonParams as $param) {
             if (array_key_exists($param, $params)) {
-
                 if (is_array($params[$param])) {
                     $values = array();
                     foreach ($params[$param] as $key => $value) {
@@ -296,7 +295,7 @@ abstract class Zend_Dojo_View_Helper_Dijit extends Zend_View_Helper_HtmlElement
         if (!is_bool($item)) {
             return;
         }
-        $item = ($item) ? "true" : "false";
+        $item = ($item) ? 'true' : 'false';
     }
 
     /**
@@ -323,7 +322,7 @@ abstract class Zend_Dojo_View_Helper_Dijit extends Zend_View_Helper_HtmlElement
      */
     protected function _createGetParentFormFunction()
     {
-        $function =<<<EOJ
+        $function = <<<EOJ
 if (zend == undefined) {
     var zend = {};
 }

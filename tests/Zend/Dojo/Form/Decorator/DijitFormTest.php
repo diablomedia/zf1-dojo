@@ -73,9 +73,9 @@ class Zend_Dojo_Form_Decorator_DijitFormTest extends PHPUnit\Framework\TestCase
     {
         $element = new Zend_Dojo_Form();
         $element->setAttribs(array(
-            'name'   => 'foo',
-            'style'  => 'width: 300px; height: 500px;',
-            'class'  => 'someclass',
+            'name'        => 'foo',
+            'style'       => 'width: 300px; height: 500px;',
+            'class'       => 'someclass',
             'dijitParams' => array(
                 'labelAttr' => 'foobar',
                 'typeAttr'  => 'barbaz',
@@ -100,8 +100,8 @@ class Zend_Dojo_Form_Decorator_DijitFormTest extends PHPUnit\Framework\TestCase
     {
         $element = new Zend_Dojo_Form();
         $element->setAttribs(array(
-            'style'  => 'width: 300px; height: 500px;',
-            'class'  => 'someclass',
+            'style'       => 'width: 300px; height: 500px;',
+            'class'       => 'someclass',
             'dijitParams' => array(
                 'labelAttr' => 'foobar',
                 'typeAttr'  => 'barbaz',

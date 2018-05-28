@@ -75,12 +75,12 @@ class Zend_Dojo_View_Helper_ComboBoxTest extends PHPUnit\Framework\TestCase
             array(),
             array(),
             array(
-                'red' => 'Rouge',
-                'blue' => 'Bleu',
-                'white' => 'Blanc',
+                'red'    => 'Rouge',
+                'blue'   => 'Bleu',
+                'white'  => 'Blanc',
                 'orange' => 'Orange',
-                'black' => 'Noir',
-                'green' => 'Vert',
+                'black'  => 'Noir',
+                'green'  => 'Vert',
             )
         );
     }
@@ -92,8 +92,8 @@ class Zend_Dojo_View_Helper_ComboBoxTest extends PHPUnit\Framework\TestCase
             'someCombo',
             array(
                 'store' => array(
-                    'store' => 'stateStore',
-                    'type' => 'dojo.data.ItemFileReadStore',
+                    'store'  => 'stateStore',
+                    'type'   => 'dojo.data.ItemFileReadStore',
                     'params' => array(
                         'url' => 'states.txt'
                     )
@@ -179,10 +179,10 @@ class Zend_Dojo_View_Helper_ComboBoxTest extends PHPUnit\Framework\TestCase
         Zend_Dojo_View_Helper_Dojo::setUseProgrammatic(true);
         $html = $this->getElementAsRemoter();
 
-        $js   = $this->view->dojo()->getJavascript();
+        $js = $this->view->dojo()->getJavascript();
         $this->assertContains('var stateStore;', $js);
 
-        $onLoad = $this->view->dojo()->_getZendLoadActions();
+        $onLoad                = $this->view->dojo()->_getZendLoadActions();
         $storeDeclarationFound = false;
         foreach ($onLoad as $statement) {
             if (strstr($statement, 'stateStore = new ')) {

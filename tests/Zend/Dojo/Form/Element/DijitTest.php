@@ -72,12 +72,12 @@ class Zend_Dojo_Form_Element_DijitTest extends PHPUnit\Framework\TestCase
         $element = new Zend_Dojo_Form_Element_TextBox(
             'foo',
             array(
-                'value' => 'some text',
-                'label' => 'TextBox',
-                'trim'  => true,
+                'value'      => 'some text',
+                'label'      => 'TextBox',
+                'trim'       => true,
                 'propercase' => true,
-                'class' => 'someclass',
-                'style' => 'width: 100px;',
+                'class'      => 'someclass',
+                'style'      => 'width: 100px;',
             )
         );
         return $element;
@@ -123,9 +123,9 @@ class Zend_Dojo_Form_Element_DijitTest extends PHPUnit\Framework\TestCase
     public function testElementShouldDojoEnableViewObject()
     {
         $this->element->setView(new Zend_View);
-        $view = $this->element->getView();
+        $view   = $this->element->getView();
         $loader = $view->getPluginLoader('helper');
-        $paths = $loader->getPaths('Zend_Dojo_View_Helper');
+        $paths  = $loader->getPaths('Zend_Dojo_View_Helper');
         $this->assertInternalType('array', $paths);
     }
 }

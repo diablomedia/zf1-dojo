@@ -112,7 +112,7 @@ class Zend_Dojo_Form_Element_ValidationTextBox extends Zend_Dojo_Form_Element_Te
      */
     public function setConstraint($key, $value)
     {
-        $constraints = $this->getConstraints();
+        $constraints                = $this->getConstraints();
         $constraints[(string) $key] = $value;
         $this->setConstraints($constraints);
         return $this;
@@ -129,7 +129,7 @@ class Zend_Dojo_Form_Element_ValidationTextBox extends Zend_Dojo_Form_Element_Te
      */
     public function setConstraints(array $constraints)
     {
-        $tmp = $this->getConstraints();
+        $tmp         = $this->getConstraints();
         $constraints = array_merge($tmp, $constraints);
         array_walk_recursive($constraints, array($this, '_castBoolToString'));
         $this->setDijitParam('constraints', $constraints);

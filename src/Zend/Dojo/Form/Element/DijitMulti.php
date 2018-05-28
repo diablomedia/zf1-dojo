@@ -102,7 +102,7 @@ abstract class Zend_Dojo_Form_Element_DijitMulti extends Zend_Dojo_Form_Element_
      */
     public function addMultiOption($option, $value = '')
     {
-        $option  = (string) $option;
+        $option = (string) $option;
         $this->_getMultiOptions();
         if (!$this->_translateOption($option, $value)) {
             $this->options[$option] = $value;
@@ -152,7 +152,7 @@ abstract class Zend_Dojo_Form_Element_DijitMulti extends Zend_Dojo_Form_Element_
      */
     public function getMultiOption($option)
     {
-        $option  = (string) $option;
+        $option = (string) $option;
         $this->_getMultiOptions();
         if (isset($this->options[$option])) {
             $this->_translateOption($option, $this->options[$option]);
@@ -184,7 +184,7 @@ abstract class Zend_Dojo_Form_Element_DijitMulti extends Zend_Dojo_Form_Element_
      */
     public function removeMultiOption($option)
     {
-        $option  = (string) $option;
+        $option = (string) $option;
         $this->_getMultiOptions();
         if (isset($this->options[$option])) {
             unset($this->options[$option]);
@@ -204,7 +204,7 @@ abstract class Zend_Dojo_Form_Element_DijitMulti extends Zend_Dojo_Form_Element_
      */
     public function clearMultiOptions()
     {
-        $this->options = array();
+        $this->options     = array();
         $this->_translated = array();
         return $this;
     }

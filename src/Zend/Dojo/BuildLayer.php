@@ -416,7 +416,7 @@ class Zend_Dojo_BuildLayer
     {
         $layerName = $this->getLayerName();
         if (null !== $layerName) {
-            $prefix    = $this->_getPrefix($layerName);
+            $prefix = $this->_getPrefix($layerName);
             if (!array_key_exists($prefix, $this->_profilePrefixes)) {
                 $this->addProfilePrefix($prefix);
             }
@@ -472,7 +472,7 @@ class Zend_Dojo_BuildLayer
             }
         }
 
-        $content .= "})();";
+        $content .= '})();';
 
         return $content;
     }
@@ -493,7 +493,7 @@ class Zend_Dojo_BuildLayer
             $profileOptions['releaseName'] = substr($layerName, 0, strpos($layerName, '.'));
         }
 
-        $profile = $profileOptions;
+        $profile           = $profileOptions;
         $profile['layers'] = array(array(
             'name'              => $layerScriptPath,
             'layerDependencies' => array(),
@@ -512,7 +512,7 @@ class Zend_Dojo_BuildLayer
      */
     protected function _getPrefix($module)
     {
-        $segments  = explode('.', $module, 2);
+        $segments = explode('.', $module, 2);
         return $segments[0];
     }
 
