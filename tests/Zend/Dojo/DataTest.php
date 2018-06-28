@@ -137,7 +137,7 @@ class Zend_Dojo_DataTest extends PHPUnit\Framework\TestCase
         );
         $this->dojoData->setIdentifier('id');
         $this->dojoData->addItem($item);
-        $this->assertEquals(1, count($this->dojoData));
+        $this->assertCount(1, $this->dojoData);
         $this->assertSame($item, $this->dojoData->getItem(1));
     }
 
@@ -151,7 +151,7 @@ class Zend_Dojo_DataTest extends PHPUnit\Framework\TestCase
         $obj = (object) $item;
         $this->dojoData->setIdentifier('id');
         $this->dojoData->addItem($obj);
-        $this->assertEquals(1, count($this->dojoData));
+        $this->assertCount(1, $this->dojoData);
         $this->assertSame($item, $this->dojoData->getItem(1));
     }
 
@@ -160,7 +160,7 @@ class Zend_Dojo_DataTest extends PHPUnit\Framework\TestCase
         $obj = new Zend_Dojo_DataTest_DataObject;
         $this->dojoData->setIdentifier('id');
         $this->dojoData->addItem($obj);
-        $this->assertEquals(1, count($this->dojoData));
+        $this->assertCount(1, $this->dojoData);
         $this->assertSame($obj->item, $this->dojoData->getItem('foo'));
     }
 
@@ -183,7 +183,7 @@ class Zend_Dojo_DataTest extends PHPUnit\Framework\TestCase
         );
         $this->dojoData->setIdentifier('id');
         $this->dojoData->addItem($item, 'foo');
-        $this->assertEquals(1, count($this->dojoData));
+        $this->assertCount(1, $this->dojoData);
         $stored = $this->dojoData->getItem('foo');
         $this->assertArrayHasKey('id', $stored);
         $this->assertEquals('foo', $stored['id']);
@@ -219,7 +219,7 @@ class Zend_Dojo_DataTest extends PHPUnit\Framework\TestCase
         );
         $this->assertNotSame($item, $this->dojoData->getItem(1));
         $this->dojoData->setItem($item);
-        $this->assertEquals(1, count($this->dojoData));
+        $this->assertCount(1, $this->dojoData);
         $this->assertSame($item, $this->dojoData->getItem(1));
     }
 
@@ -231,9 +231,9 @@ class Zend_Dojo_DataTest extends PHPUnit\Framework\TestCase
             'url'   => 'http://www.foo.com/',
         );
         $this->dojoData->setIdentifier('id');
-        $this->assertEquals(0, count($this->dojoData));
+        $this->assertCount(0, $this->dojoData);
         $this->dojoData->setItem($item);
-        $this->assertEquals(1, count($this->dojoData));
+        $this->assertCount(1, $this->dojoData);
         $this->assertSame($item, $this->dojoData->getItem(1));
     }
 
@@ -257,9 +257,9 @@ class Zend_Dojo_DataTest extends PHPUnit\Framework\TestCase
             ),
         );
         $this->dojoData->setIdentifier('id');
-        $this->assertEquals(0, count($this->dojoData));
+        $this->assertCount(0, $this->dojoData);
         $this->dojoData->addItems($items);
-        $this->assertEquals(3, count($this->dojoData));
+        $this->assertCount(3, $this->dojoData);
         $this->assertSame($items[0], $this->dojoData->getItem(1));
         $this->assertSame($items[1], $this->dojoData->getItem(2));
         $this->assertSame($items[2], $this->dojoData->getItem(3));
@@ -269,9 +269,9 @@ class Zend_Dojo_DataTest extends PHPUnit\Framework\TestCase
     {
         $obj = new Zend_Dojo_DataTest_DataCollection;
         $this->dojoData->setIdentifier('id');
-        $this->assertEquals(0, count($this->dojoData));
+        $this->assertCount(0, $this->dojoData);
         $this->dojoData->addItems($obj);
-        $this->assertEquals(3, count($this->dojoData));
+        $this->assertCount(3, $this->dojoData);
         $this->assertSame($obj->items[0]->toArray(), $this->dojoData->getItem(1));
         $this->assertSame($obj->items[1]->toArray(), $this->dojoData->getItem(2));
         $this->assertSame($obj->items[2]->toArray(), $this->dojoData->getItem(3));
@@ -292,7 +292,7 @@ class Zend_Dojo_DataTest extends PHPUnit\Framework\TestCase
         $items = $this->dojoData->getItems();
         $obj   = new Zend_Dojo_DataTest_DataCollection;
         $this->dojoData->setItems($obj);
-        $this->assertEquals(3, count($this->dojoData));
+        $this->assertCount(3, $this->dojoData);
         $this->assertNotSame($items, $this->dojoData->getItems());
     }
 
@@ -302,14 +302,14 @@ class Zend_Dojo_DataTest extends PHPUnit\Framework\TestCase
         $this->assertNotNull($this->dojoData->getItem(1));
         $this->dojoData->removeItem(1);
         $this->assertNull($this->dojoData->getItem(1));
-        $this->assertEquals(2, count($this->dojoData));
+        $this->assertCount(2, $this->dojoData);
     }
 
     public function testClearItemsShouldRemoveAllItems()
     {
         $this->testAddItemsShouldAcceptArray();
         $this->dojoData->clearItems();
-        $this->assertEquals(0, count($this->dojoData));
+        $this->assertCount(0, $this->dojoData);
     }
 
     public function testGetItemShouldReturnNullIfNoMatchingItemExists()
@@ -488,7 +488,7 @@ class Zend_Dojo_DataTest extends PHPUnit\Framework\TestCase
         $this->testDataContainerShouldAcceptAdditionalMetadataEnMasse();
         $this->dojoData->clearMetadata('numRows');
         $metadata = $this->dojoData->getMetadata();
-        $this->assertEquals(1, count($metadata));
+        $this->assertCount(1, $metadata);
         $this->assertArrayNotHasKey('numRows', $metadata);
         $this->assertArrayHasKey('sort', $metadata);
     }
@@ -501,7 +501,7 @@ class Zend_Dojo_DataTest extends PHPUnit\Framework\TestCase
         $this->testDataContainerShouldAcceptAdditionalMetadataEnMasse();
         $this->dojoData->clearMetadata();
         $metadata = $this->dojoData->getMetadata();
-        $this->assertEquals(0, count($metadata));
+        $this->assertCount(0, $metadata);
     }
 
     /**

@@ -240,7 +240,7 @@ class Zend_Dojo_Form_Element_EditorTest extends PHPUnit\Framework\TestCase
         $this->element->setPlugins(array('undo', '|', 'bold', '|', 'italic'));
 
         $plugins = $this->element->getPlugins();
-        $this->assertEquals(5, count($plugins));
+        $this->assertCount(5, $plugins);
     }
 
     public function testMinHeightCanBeSetToPixels()
