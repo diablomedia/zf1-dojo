@@ -904,7 +904,7 @@ function() {
     {
         $this->helper->addDijit(
             'foo',
-                array('dojoType' => 'dijit.form.TextBox',
+            array('dojoType'     => 'dijit.form.TextBox',
                       'onChange' => new Zend_Json_Expr('function(){alert(\'foo\');}'),
                       )
         );

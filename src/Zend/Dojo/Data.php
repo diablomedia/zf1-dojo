@@ -33,7 +33,7 @@ class Zend_Dojo_Data implements ArrayAccess, Iterator, Countable
 {
     /**
      * Identifier field of item
-     * @var string|int
+     * @var string|int|null
      */
     protected $_identifier;
 

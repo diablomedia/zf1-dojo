@@ -257,9 +257,9 @@ class Zend_Dojo_View_Helper_HorizontalSliderTest extends PHPUnit\Framework\TestC
         ));
 
         $sliderForm->addElement(
-                'HorizontalSlider',
-                'slide1',
-                array(
+            'HorizontalSlider',
+            'slide1',
+            array(
                     'label'               => 'Slide me:',
                     'minimum'             => 0,
                     'maximum'             => 25,
