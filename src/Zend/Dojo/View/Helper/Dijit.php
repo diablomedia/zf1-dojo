@@ -220,6 +220,8 @@ abstract class Zend_Dojo_View_Helper_Dijit extends Zend_View_Helper_HtmlElement
                 $stripParams = array('id', 'name', 'type', 'degrade');
                 break;
             default:
+                $stripParams = array();
+                break;
         }
 
         foreach ($stripParams as $param) {

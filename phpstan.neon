@@ -9,5 +9,16 @@ parameters:
         - '#Call to an undefined method Zend_View_Interface::.+\(\)\.#'
         - '#Strict comparison using === between null and string will always evaluate to false\.#'
         -
-            message: '#If condition is always true.#'
+            message: '#If condition is always true\.#'
             path: %currentWorkingDirectory%/src/Zend/Dojo/BuildLayer.php
+        
+        # These are all defensive coding for arguments that could be multiple types (so can't really be type-hinted)
+        -
+            message: '#Result of && is always false\.#'
+            path: %currentWorkingDirectory%/src/Zend/Dojo/Data.php
+        -
+            message: '#Result of \|\| is always false\.#'
+            path: %currentWorkingDirectory%/src/Zend/Dojo/Data.php
+        -
+            message: '#Result of && is always false\.#'
+            path: %currentWorkingDirectory%/src/Zend/Dojo/View/Helper/Dojo/Container.php
