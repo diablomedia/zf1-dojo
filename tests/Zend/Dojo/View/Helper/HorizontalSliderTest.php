@@ -269,7 +269,7 @@ class Zend_Dojo_View_Helper_HorizontalSliderTest extends PHPUnit\Framework\TestC
                     'topDecorationLabels' => array('0%', '50%', '100%'),
                     'topDecorationParams' => array('style' => 'padding-bottom: 20px;')
                 )
-            );
+        );
 
         $form->addSubForm($sliderForm, 'slidertab')
              ->setView($this->getView());
