@@ -16,7 +16,7 @@
         "diablomedia/zendframework1-json": "^1.0.3",
         "diablomedia/zendframework1-registry": "^1.0.2",
         "diablomedia/zendframework1-filter": "^1.0.0",
-        "diablomedia/zendframework1-view": "^1.0.0",
+        "diablomedia/zendframework1-view": "^1.0.3",
         "diablomedia/zendframework1-form": "^1.0.2"
     },
     "autoload": {
@@ -38,7 +38,7 @@
         "diablomedia/zendframework1-translate": "^1.0.0",
         "friendsofphp/php-cs-fixer": "2.15.2",
         "maglnet/composer-require-checker": "^1.1.0",
-        "phpro/grumphp": "^0.14.0"
+        "phpro/grumphp": "^0.16.0"
     },
     "include-path": [
         "./src"
