@@ -224,6 +224,8 @@ abstract class Zend_Dojo_View_Helper_Slider extends Zend_Dojo_View_Helper_Dijit
             case 'rightDecoration':
                 return $containerHtml . $labelList;
         }
+
+        return '';
     }
 
     /**
