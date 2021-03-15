@@ -40,7 +40,7 @@ class Zend_Dojo_Form_Element_DijitTest extends PHPUnit\Framework\TestCase
      *
      * @return void
      */
-    public function setUp()
+    public function setUp(): void
     {
         Zend_Registry::_unsetInstance();
         Zend_Dojo_View_Helper_Dojo::setUseDeclarative();
@@ -56,7 +56,7 @@ class Zend_Dojo_Form_Element_DijitTest extends PHPUnit\Framework\TestCase
      *
      * @return void
      */
-    public function tearDown()
+    public function tearDown(): void
     {
     }
 
@@ -117,7 +117,7 @@ class Zend_Dojo_Form_Element_DijitTest extends PHPUnit\Framework\TestCase
     public function testRenderingShouldCreateDijit()
     {
         $html = $this->element->render();
-        $this->assertContains('dojoType="dijit.form.TextBox"', $html);
+        $this->assertStringContainsString('dojoType="dijit.form.TextBox"', $html);
     }
 
     public function testElementShouldDojoEnableViewObject()
@@ -126,6 +126,6 @@ class Zend_Dojo_Form_Element_DijitTest extends PHPUnit\Framework\TestCase
         $view   = $this->element->getView();
         $loader = $view->getPluginLoader('helper');
         $paths  = $loader->getPaths('Zend_Dojo_View_Helper');
-        $this->assertInternalType('array', $paths);
+        $this->assertIsArray($paths);
     }
 }

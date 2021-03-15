@@ -40,7 +40,7 @@ class Zend_Dojo_View_Helper_AccordionContainerTest extends PHPUnit\Framework\Tes
      *
      * @return void
      */
-    public function setUp()
+    public function setUp(): void
     {
         Zend_Registry::_unsetInstance();
         Zend_Dojo_View_Helper_Dojo::setUseDeclarative();
@@ -56,7 +56,7 @@ class Zend_Dojo_View_Helper_AccordionContainerTest extends PHPUnit\Framework\Tes
      *
      * @return void
      */
-    public function tearDown()
+    public function tearDown(): void
     {
     }
 
@@ -109,9 +109,9 @@ class Zend_Dojo_View_Helper_AccordionContainerTest extends PHPUnit\Framework\Tes
         $this->assertRegExp('/<div[^>]*(id="foo")/', $html);
         $this->assertEquals(2, substr_count($html, 'dijit.layout.AccordionPane'));
         $this->assertEquals(1, substr_count($html, 'dijit.layout.AccordionContainer'));
-        $this->assertContains('started', $html);
-        $this->assertContains('ended', $html);
-        $this->assertContains('Nested Content', $html);
+        $this->assertStringContainsString('started', $html);
+        $this->assertStringContainsString('ended', $html);
+        $this->assertStringContainsString('Nested Content', $html);
     }
 
     public function testCapturingShouldRaiseErrorWhenDuplicateIdDiscovered()

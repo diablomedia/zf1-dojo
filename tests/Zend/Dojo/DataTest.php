@@ -39,7 +39,7 @@ class Zend_Dojo_DataTest extends PHPUnit\Framework\TestCase
      *
      * @return void
      */
-    public function setUp()
+    public function setUp(): void
     {
         $this->dojoData = new Zend_Dojo_Data;
     }
@@ -109,7 +109,7 @@ class Zend_Dojo_DataTest extends PHPUnit\Framework\TestCase
             $this->dojoData->addItem($item);
             $this->fail('Should throw exception if no identifier present');
         } catch (Zend_Dojo_Exception $e) {
-            $this->assertContains('identifier', $e->getMessage());
+            $this->assertStringContainsString('identifier', $e->getMessage());
         }
     }
 
@@ -124,7 +124,7 @@ class Zend_Dojo_DataTest extends PHPUnit\Framework\TestCase
             $this->dojoData->addItem($item);
             $this->fail('Should throw exception if no identifier present');
         } catch (Zend_Dojo_Exception $e) {
-            $this->assertContains('identifier', $e->getMessage());
+            $this->assertStringContainsString('identifier', $e->getMessage());
         }
     }
 
@@ -171,7 +171,7 @@ class Zend_Dojo_DataTest extends PHPUnit\Framework\TestCase
             $this->dojoData->addItem('foo');
             $this->fail('Invalid item should throw error');
         } catch (Zend_Dojo_Exception $e) {
-            $this->assertContains('Only arrays and objects', $e->getMessage());
+            $this->assertStringContainsString('Only arrays and objects', $e->getMessage());
         }
     }
 
@@ -205,7 +205,7 @@ class Zend_Dojo_DataTest extends PHPUnit\Framework\TestCase
             $this->dojoData->addItem($item);
             $this->fail('Overwriting items via addItem() should throw error');
         } catch (Zend_Dojo_Exception $e) {
-            $this->assertContains('not allowed', $e->getMessage());
+            $this->assertStringContainsString('not allowed', $e->getMessage());
         }
     }
 
@@ -321,7 +321,7 @@ class Zend_Dojo_DataTest extends PHPUnit\Framework\TestCase
     {
         $this->testAddItemsShouldAcceptArray();
         $items = $this->dojoData->getItems();
-        $this->assertInternalType('array', $items);
+        $this->assertIsArray($items);
     }
 
     public function testConstructorShouldSetIdentifierItemsAndLabelWhenPassed()
@@ -355,7 +355,7 @@ class Zend_Dojo_DataTest extends PHPUnit\Framework\TestCase
     {
         $this->testAddItemsShouldAcceptTraversableObject();
         $array = $this->dojoData->toArray();
-        $this->assertInternalType('array', $array);
+        $this->assertIsArray($array);
         $this->assertArrayHasKey('identifier', $array);
         $this->assertEquals($this->dojoData->getIdentifier(), $array['identifier']);
         $this->assertEquals(array_values($this->dojoData->getItems()), $array['items']);
@@ -366,7 +366,7 @@ class Zend_Dojo_DataTest extends PHPUnit\Framework\TestCase
         $this->testShouldSerializeToArray();
         $this->dojoData->setLabel('title');
         $array = $this->dojoData->toArray();
-        $this->assertInternalType('array', $array);
+        $this->assertIsArray($array);
         $this->assertArrayHasKey('label', $array);
         $this->assertEquals($this->dojoData->getLabel(), $array['label']);
     }
@@ -379,7 +379,7 @@ class Zend_Dojo_DataTest extends PHPUnit\Framework\TestCase
             $array = $this->dojoData->toArray();
             $this->fail('Serialization to array should throw error when no identifier is present in object');
         } catch (Zend_Dojo_Exception $e) {
-            $this->assertContains('present', $e->getMessage());
+            $this->assertStringContainsString('present', $e->getMessage());
         }
     }
 
@@ -417,7 +417,7 @@ class Zend_Dojo_DataTest extends PHPUnit\Framework\TestCase
         $this->assertTrue($this->dojoData instanceof Iterator);
         $this->testAddItemsShouldAcceptTraversableObject();
         foreach ($this->dojoData as $key => $item) {
-            $this->assertInternalType('array', $item);
+            $this->assertIsArray($item);
             $this->assertEquals($key, $item['id']);
         }
     }
@@ -471,7 +471,7 @@ class Zend_Dojo_DataTest extends PHPUnit\Framework\TestCase
     public function testDataContainerShouldAcceptAdditionalMetadataEnMasse()
     {
         $metadata = $this->dojoData->getMetadata();
-        $this->assertInternalType('array', $metadata);
+        $this->assertIsArray($metadata);
         $this->assertEmpty($metadata);
 
         $metadata = array('numRows' => 100, 'sort' => 'name');

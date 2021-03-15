@@ -40,7 +40,7 @@ class Zend_Dojo_View_Helper_NumberSpinnerTest extends PHPUnit\Framework\TestCase
      *
      * @return void
      */
-    public function setUp()
+    public function setUp(): void
     {
         Zend_Registry::_unsetInstance();
         Zend_Dojo_View_Helper_Dojo::setUseDeclarative();
@@ -56,7 +56,7 @@ class Zend_Dojo_View_Helper_NumberSpinnerTest extends PHPUnit\Framework\TestCase
      *
      * @return void
      */
-    public function tearDown()
+    public function tearDown(): void
     {
     }
 
@@ -115,7 +115,7 @@ class Zend_Dojo_View_Helper_NumberSpinnerTest extends PHPUnit\Framework\TestCase
             $constraints = str_replace('&#39;', '"', $constraints);
         }
         $constraints = Zend_Json::decode($constraints);
-        $this->assertInternalType('array', $constraints, var_export($m[1], 1));
+        $this->assertIsArray($constraints, var_export($m[1], 1));
         $this->assertArrayHasKey('min', $constraints);
         $this->assertArrayHasKey('max', $constraints);
         $this->assertArrayHasKey('places', $constraints);
@@ -130,6 +130,6 @@ class Zend_Dojo_View_Helper_NumberSpinnerTest extends PHPUnit\Framework\TestCase
                 'constraints' => 'bogus',
             )
         );
-        $this->assertNotContains('constraints="', $html);
+        $this->assertStringNotContainsString('constraints="', $html);
     }
 }

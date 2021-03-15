@@ -40,7 +40,7 @@ class Zend_Dojo_View_Helper_ValidationTextBoxTest extends PHPUnit\Framework\Test
      *
      * @return void
      */
-    public function setUp()
+    public function setUp(): void
     {
         Zend_Registry::_unsetInstance();
         Zend_Dojo_View_Helper_Dojo::setUseDeclarative();
@@ -56,7 +56,7 @@ class Zend_Dojo_View_Helper_ValidationTextBoxTest extends PHPUnit\Framework\Test
      *
      * @return void
      */
-    public function tearDown()
+    public function tearDown(): void
     {
     }
 
@@ -106,7 +106,7 @@ class Zend_Dojo_View_Helper_ValidationTextBoxTest extends PHPUnit\Framework\Test
     public function testTrueRequiredParameterShouldBeRenderedAsStringValue()
     {
         $html = $this->getElement();
-        $this->assertContains('required="true"', $html);
+        $this->assertStringContainsString('required="true"', $html);
     }
 
     /**
@@ -123,6 +123,6 @@ class Zend_Dojo_View_Helper_ValidationTextBoxTest extends PHPUnit\Framework\Test
             ),
             array()
         );
-        $this->assertContains('required="false"', $html);
+        $this->assertStringContainsString('required="false"', $html);
     }
 }

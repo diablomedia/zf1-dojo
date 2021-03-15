@@ -39,7 +39,7 @@ class Zend_Dojo_DojoTest extends PHPUnit\Framework\TestCase
      *
      * @return void
      */
-    public function setUp()
+    public function setUp(): void
     {
     }
 
@@ -49,7 +49,7 @@ class Zend_Dojo_DojoTest extends PHPUnit\Framework\TestCase
      *
      * @return void
      */
-    public function tearDown()
+    public function tearDown(): void
     {
     }
 
@@ -78,27 +78,27 @@ class Zend_Dojo_DojoTest extends PHPUnit\Framework\TestCase
 
         $decPluginLoader = $form->getPluginLoader('decorator');
         $paths           = $decPluginLoader->getPaths('Zend_Dojo_Form_Decorator');
-        $this->assertInternalType('array', $paths);
+        $this->assertIsArray($paths);
 
         $elPluginLoader = $form->getPluginLoader('element');
         $paths          = $elPluginLoader->getPaths('Zend_Dojo_Form_Element');
-        $this->assertInternalType('array', $paths);
+        $this->assertIsArray($paths);
 
         $decPluginLoader = $form->baz->getPluginLoader('decorator');
         $paths           = $decPluginLoader->getPaths('Zend_Dojo_Form_Decorator');
-        $this->assertInternalType('array', $paths);
+        $this->assertIsArray($paths);
 
         $decPluginLoader = $form->foobar->getPluginLoader();
         $paths           = $decPluginLoader->getPaths('Zend_Dojo_Form_Decorator');
-        $this->assertInternalType('array', $paths);
+        $this->assertIsArray($paths);
 
         $decPluginLoader = $form->sub->getPluginLoader('decorator');
         $paths           = $decPluginLoader->getPaths('Zend_Dojo_Form_Decorator');
-        $this->assertInternalType('array', $paths);
+        $this->assertIsArray($paths);
 
         $elPluginLoader = $form->sub->getPluginLoader('element');
         $paths          = $elPluginLoader->getPaths('Zend_Dojo_Form_Element');
-        $this->assertInternalType('array', $paths);
+        $this->assertIsArray($paths);
     }
 
     public function testEnableFormShouldSetAppropriateDefaultDisplayGroup()
@@ -115,7 +115,7 @@ class Zend_Dojo_DojoTest extends PHPUnit\Framework\TestCase
         $view         = $form->getView();
         $helperLoader = $view->getPluginLoader('helper');
         $paths        = $helperLoader->getPaths('Zend_Dojo_View_Helper');
-        $this->assertInternalType('array', $paths);
+        $this->assertIsArray($paths);
     }
 
     public function testEnableViewShouldSetAppropriateViewHelperPaths()
@@ -124,6 +124,6 @@ class Zend_Dojo_DojoTest extends PHPUnit\Framework\TestCase
         Zend_Dojo::enableView($view);
         $helperLoader = $view->getPluginLoader('helper');
         $paths        = $helperLoader->getPaths('Zend_Dojo_View_Helper');
-        $this->assertInternalType('array', $paths);
+        $this->assertIsArray($paths);
     }
 }

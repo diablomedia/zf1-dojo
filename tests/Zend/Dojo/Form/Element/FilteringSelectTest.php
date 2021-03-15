@@ -40,7 +40,7 @@ class Zend_Dojo_Form_Element_FilteringSelectTest extends PHPUnit\Framework\TestC
      *
      * @return void
      */
-    public function setUp()
+    public function setUp(): void
     {
         Zend_Registry::_unsetInstance();
         Zend_Dojo_View_Helper_Dojo::setUseDeclarative();
@@ -56,7 +56,7 @@ class Zend_Dojo_Form_Element_FilteringSelectTest extends PHPUnit\Framework\TestC
      *
      * @return void
      */
-    public function tearDown()
+    public function tearDown(): void
     {
     }
 
@@ -84,7 +84,7 @@ class Zend_Dojo_Form_Element_FilteringSelectTest extends PHPUnit\Framework\TestC
     public function testShouldRenderFilteringSelectDijit()
     {
         $html = $this->element->render();
-        $this->assertContains('dojoType="dijit.form.FilteringSelect"', $html);
+        $this->assertStringContainsString('dojoType="dijit.form.FilteringSelect"', $html);
     }
 
     /**#@+

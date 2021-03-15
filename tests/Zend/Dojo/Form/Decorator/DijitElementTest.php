@@ -40,7 +40,7 @@ class Zend_Dojo_Form_Decorator_DijitElementTest extends PHPUnit\Framework\TestCa
      *
      * @return void
      */
-    public function setUp()
+    public function setUp(): void
     {
         Zend_Registry::_unsetInstance();
         Zend_Dojo_View_Helper_Dojo::setUseDeclarative();
@@ -59,7 +59,7 @@ class Zend_Dojo_Form_Decorator_DijitElementTest extends PHPUnit\Framework\TestCa
      *
      * @return void
      */
-    public function tearDown()
+    public function tearDown(): void
     {
     }
 
@@ -101,7 +101,7 @@ class Zend_Dojo_Form_Decorator_DijitElementTest extends PHPUnit\Framework\TestCa
     public function testRetrievingElementAttributesShouldOmitDijitParams()
     {
         $attribs = $this->decorator->getElementAttribs();
-        $this->assertInternalType('array', $attribs);
+        $this->assertIsArray($attribs);
         $this->assertArrayNotHasKey('dijitParams', $attribs);
         $this->assertArrayNotHasKey('propercase', $attribs);
         $this->assertArrayNotHasKey('trim', $attribs);
@@ -110,7 +110,7 @@ class Zend_Dojo_Form_Decorator_DijitElementTest extends PHPUnit\Framework\TestCa
     public function testRetrievingDijitParamsShouldOmitNormalAttributes()
     {
         $params = $this->decorator->getDijitParams();
-        $this->assertInternalType('array', $params);
+        $this->assertIsArray($params);
         $this->assertArrayNotHasKey('class', $params);
         $this->assertArrayNotHasKey('style', $params);
         $this->assertArrayNotHasKey('value', $params);
@@ -172,14 +172,14 @@ class Zend_Dojo_Form_Decorator_DijitElementTest extends PHPUnit\Framework\TestCa
     public function testRenderingShouldCreateDijit()
     {
         $html = $this->decorator->render('');
-        $this->assertContains('dojoType="dijit.form.TextBox"', $html);
+        $this->assertStringContainsString('dojoType="dijit.form.TextBox"', $html);
     }
 
     public function testRenderingShouldSetRequiredDijitParamWhenElementIsRequired()
     {
         $this->element->setRequired(true);
         $html = $this->decorator->render('');
-        $this->assertContains('required="', $html);
+        $this->assertStringContainsString('required="', $html);
     }
 
     /**
@@ -189,6 +189,6 @@ class Zend_Dojo_Form_Decorator_DijitElementTest extends PHPUnit\Framework\TestCa
     {
         $this->element->setRequired(false);
         $html = $this->decorator->render('');
-        $this->assertContains('required="false"', $html, $html);
+        $this->assertStringContainsString('required="false"', $html, $html);
     }
 }

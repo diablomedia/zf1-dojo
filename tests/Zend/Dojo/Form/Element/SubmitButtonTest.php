@@ -40,7 +40,7 @@ class Zend_Dojo_Form_Element_SubmitButtonTest extends PHPUnit\Framework\TestCase
      *
      * @return void
      */
-    public function setUp()
+    public function setUp(): void
     {
         Zend_Registry::_unsetInstance();
         Zend_Dojo_View_Helper_Dojo::setUseDeclarative();
@@ -56,7 +56,7 @@ class Zend_Dojo_Form_Element_SubmitButtonTest extends PHPUnit\Framework\TestCase
      *
      * @return void
      */
-    public function tearDown()
+    public function tearDown(): void
     {
     }
 
@@ -142,13 +142,13 @@ class Zend_Dojo_Form_Element_SubmitButtonTest extends PHPUnit\Framework\TestCase
     public function testShouldRenderButtonDijit()
     {
         $html = $this->element->render();
-        $this->assertContains('dojoType="dijit.form.Button"', $html);
+        $this->assertStringContainsString('dojoType="dijit.form.Button"', $html);
     }
 
     public function testShouldRenderSubmitInput()
     {
         $html = $this->element->render();
-        $this->assertContains('type="submit"', $html);
+        $this->assertStringContainsString('type="submit"', $html);
     }
 
     /**

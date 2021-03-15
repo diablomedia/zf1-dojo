@@ -40,7 +40,7 @@ class Zend_Dojo_Form_SubFormTest extends PHPUnit\Framework\TestCase
      *
      * @return void
      */
-    public function setUp()
+    public function setUp(): void
     {
         $this->form = new Zend_Dojo_Form_SubForm();
         $this->form->addElement('TextBox', 'foo')
@@ -54,32 +54,32 @@ class Zend_Dojo_Form_SubFormTest extends PHPUnit\Framework\TestCase
      *
      * @return void
      */
-    public function tearDown()
+    public function tearDown(): void
     {
     }
 
     public function testDojoFormDecoratorPathShouldBeRegisteredByDefault()
     {
         $paths = $this->form->getPluginLoader('decorator')->getPaths('Zend_Dojo_Form_Decorator');
-        $this->assertInternalType('array', $paths);
+        $this->assertIsArray($paths);
     }
 
     public function testDojoFormElementPathShouldBeRegisteredByDefault()
     {
         $paths = $this->form->getPluginLoader('element')->getPaths('Zend_Dojo_Form_Element');
-        $this->assertInternalType('array', $paths);
+        $this->assertIsArray($paths);
     }
 
     public function testDojoFormElementDecoratorPathShouldBeRegisteredByDefault()
     {
         $paths = $this->form->foo->getPluginLoader('decorator')->getPaths('Zend_Dojo_Form_Decorator');
-        $this->assertInternalType('array', $paths);
+        $this->assertIsArray($paths);
     }
 
     public function testDojoFormDisplayGroupDecoratorPathShouldBeRegisteredByDefault()
     {
         $paths = $this->form->dg->getPluginLoader()->getPaths('Zend_Dojo_Form_Decorator');
-        $this->assertInternalType('array', $paths);
+        $this->assertIsArray($paths);
     }
 
     public function testDefaultDisplayGroupClassShouldBeDojoDisplayGroupByDefault()
@@ -97,6 +97,6 @@ class Zend_Dojo_Form_SubFormTest extends PHPUnit\Framework\TestCase
         $view   = $this->form->getView();
         $loader = $view->getPluginLoader('helper');
         $paths  = $loader->getPaths('Zend_Dojo_View_Helper');
-        $this->assertInternalType('array', $paths);
+        $this->assertIsArray($paths);
     }
 }

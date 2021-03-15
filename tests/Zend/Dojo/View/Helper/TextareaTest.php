@@ -40,7 +40,7 @@ class Zend_Dojo_View_Helper_TextareaTest extends PHPUnit\Framework\TestCase
      *
      * @return void
      */
-    public function setUp()
+    public function setUp(): void
     {
         Zend_Registry::_unsetInstance();
         Zend_Dojo_View_Helper_Dojo::setUseDeclarative();
@@ -56,7 +56,7 @@ class Zend_Dojo_View_Helper_TextareaTest extends PHPUnit\Framework\TestCase
      *
      * @return void
      */
-    public function tearDown()
+    public function tearDown(): void
     {
     }
 
@@ -94,7 +94,7 @@ class Zend_Dojo_View_Helper_TextareaTest extends PHPUnit\Framework\TestCase
     public function testPassingIdAsAttributeShouldOverrideUsingNameAsId()
     {
         $html = $this->helper->textarea('foo[bar]', '', array(), array('id' => 'foo-bar'));
-        $this->assertContains('id="foo-bar"', $html);
+        $this->assertStringContainsString('id="foo-bar"', $html);
     }
 
     public function testGeneratedMarkupShouldNotIncludeTypeAttribute()

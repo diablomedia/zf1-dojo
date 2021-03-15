@@ -40,7 +40,7 @@ class Zend_Dojo_Form_Element_EditorTest extends PHPUnit\Framework\TestCase
      *
      * @return void
      */
-    public function setUp()
+    public function setUp(): void
     {
         Zend_Registry::_unsetInstance();
         Zend_Dojo_View_Helper_Dojo::setUseDeclarative();
@@ -56,7 +56,7 @@ class Zend_Dojo_Form_Element_EditorTest extends PHPUnit\Framework\TestCase
      *
      * @return void
      */
-    public function tearDown()
+    public function tearDown(): void
     {
     }
 
@@ -84,7 +84,7 @@ class Zend_Dojo_Form_Element_EditorTest extends PHPUnit\Framework\TestCase
     public function testShouldRenderEditorDijit()
     {
         $html = $this->element->render();
-        $this->assertContains('dojoType="dijit.Editor"', $html, $html);
+        $this->assertStringContainsString('dojoType="dijit.Editor"', $html, $html);
     }
 
     public function testShouldNotHaveCaptureEventsByDefault()
@@ -220,7 +220,7 @@ class Zend_Dojo_Form_Element_EditorTest extends PHPUnit\Framework\TestCase
         $this->element->removeStyleSheet('/js/custom/styles.css');
         $this->assertFalse($this->element->hasStyleSheet('/js/custom/styles.css'), var_export($this->element->getStyleSheets(), 1));
         $styleSheets = $this->element->getDijitParam('styleSheets');
-        $this->assertNotContains('/js/custom/styles.css', $styleSheets, var_export($styleSheets, 1));
+        $this->assertStringNotContainsString('/js/custom/styles.css', $styleSheets, var_export($styleSheets, 1));
     }
 
     public function testUpdateIntervalShouldHaveDefaultValue()

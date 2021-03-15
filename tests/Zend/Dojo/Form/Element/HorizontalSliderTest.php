@@ -40,7 +40,7 @@ class Zend_Dojo_Form_Element_HorizontalSliderTest extends PHPUnit\Framework\Test
      *
      * @return void
      */
-    public function setUp()
+    public function setUp(): void
     {
         Zend_Registry::_unsetInstance();
         Zend_Dojo_View_Helper_Dojo::setUseDeclarative();
@@ -56,7 +56,7 @@ class Zend_Dojo_Form_Element_HorizontalSliderTest extends PHPUnit\Framework\Test
      *
      * @return void
      */
-    public function tearDown()
+    public function tearDown(): void
     {
     }
 
@@ -314,6 +314,6 @@ class Zend_Dojo_Form_Element_HorizontalSliderTest extends PHPUnit\Framework\Test
                       ->setMaximum(10)
                       ->setDiscreteValues(11);
         $html = $this->element->render();
-        $this->assertContains('dojoType="dijit.form.HorizontalSlider"', $html);
+        $this->assertStringContainsString('dojoType="dijit.form.HorizontalSlider"', $html);
     }
 }

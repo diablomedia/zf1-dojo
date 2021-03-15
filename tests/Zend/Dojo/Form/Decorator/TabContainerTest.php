@@ -40,7 +40,7 @@ class Zend_Dojo_Form_Decorator_TabContainerTest extends PHPUnit\Framework\TestCa
      *
      * @return void
      */
-    public function setUp()
+    public function setUp(): void
     {
         Zend_Registry::_unsetInstance();
         Zend_Dojo_View_Helper_Dojo::setUseDeclarative();
@@ -58,7 +58,7 @@ class Zend_Dojo_Form_Decorator_TabContainerTest extends PHPUnit\Framework\TestCa
      *
      * @return void
      */
-    public function tearDown()
+    public function tearDown(): void
     {
     }
 
@@ -93,6 +93,6 @@ class Zend_Dojo_Form_Decorator_TabContainerTest extends PHPUnit\Framework\TestCa
     public function testRenderingShouldCreateDijit()
     {
         $html = $this->decorator->render('');
-        $this->assertContains('dojoType="dijit.layout.TabContainer"', $html);
+        $this->assertStringContainsString('dojoType="dijit.layout.TabContainer"', $html);
     }
 }

@@ -40,7 +40,7 @@ class Zend_Dojo_View_Helper_ComboBoxTest extends PHPUnit\Framework\TestCase
      *
      * @return void
      */
-    public function setUp()
+    public function setUp(): void
     {
         Zend_Registry::_unsetInstance();
         Zend_Dojo_View_Helper_Dojo::setUseDeclarative();
@@ -56,7 +56,7 @@ class Zend_Dojo_View_Helper_ComboBoxTest extends PHPUnit\Framework\TestCase
      *
      * @return void
      */
-    public function tearDown()
+    public function tearDown(): void
     {
     }
 
@@ -124,7 +124,7 @@ class Zend_Dojo_View_Helper_ComboBoxTest extends PHPUnit\Framework\TestCase
         if (!preg_match('/(<input[^>]*(dojoType="dijit.form.ComboBox"))/', $html, $m)) {
             $this->fail('Did not create text input as remoter: ' . $html);
         }
-        $this->assertContains('type="text"', $m[1]);
+        $this->assertStringContainsString('type="text"', $m[1]);
     }
 
     public function testShouldAllowProgrammaticDijitCreationAsRemoter()
@@ -136,7 +136,7 @@ class Zend_Dojo_View_Helper_ComboBoxTest extends PHPUnit\Framework\TestCase
         $this->assertNotNull($this->view->dojo()->getDijit('elementId'));
 
         $found = false;
-        $this->assertContains('var stateStore;', $this->view->dojo()->getJavascript());
+        $this->assertCOntains('var stateStore;', $this->view->dojo()->getJavascript());
 
         $scripts = $this->view->dojo()->_getZendLoadActions();
         foreach ($scripts as $js) {
@@ -163,11 +163,11 @@ class Zend_Dojo_View_Helper_ComboBoxTest extends PHPUnit\Framework\TestCase
         if (!preg_match('/(<input[^>]*(dojoType="dijit.form.ComboBox"))/', $html, $m)) {
             $this->fail('Did not create text input as remoter: ' . $html);
         }
-        $this->assertContains('type="text"', $m[1]);
+        $this->assertStringContainsString('type="text"', $m[1]);
         if (!preg_match('/(<div[^>]*(?:dojoType="dojo.data.ItemFileReadStore")[^>]*>)/', $html, $m)) {
             $this->fail('Did not create data store: ' . $html);
         }
-        $this->assertContains('url="states.txt"', $m[1]);
+        $this->assertStringContainsString('url="states.txt"', $m[1]);
     }
 
     /**

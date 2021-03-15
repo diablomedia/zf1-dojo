@@ -40,7 +40,7 @@ class Zend_Dojo_Form_Decorator_DijitContainerTest extends PHPUnit\Framework\Test
      *
      * @return void
      */
-    public function setUp()
+    public function setUp(): void
     {
         Zend_Registry::_unsetInstance();
         Zend_Dojo_View_Helper_Dojo::setUseDeclarative();
@@ -59,7 +59,7 @@ class Zend_Dojo_Form_Decorator_DijitContainerTest extends PHPUnit\Framework\Test
      *
      * @return void
      */
-    public function tearDown()
+    public function tearDown(): void
     {
     }
 
@@ -100,14 +100,14 @@ class Zend_Dojo_Form_Decorator_DijitContainerTest extends PHPUnit\Framework\Test
     public function testRetrievingElementAttributesShouldOmitDijitParams()
     {
         $attribs = $this->decorator->getAttribs();
-        $this->assertInternalType('array', $attribs);
+        $this->assertIsArray($attribs);
         $this->assertArrayNotHasKey('dijitParams', $attribs);
     }
 
     public function testRetrievingDijitParamsShouldOmitNormalAttributes()
     {
         $params = $this->decorator->getDijitParams();
-        $this->assertInternalType('array', $params);
+        $this->assertIsArray($params);
         $this->assertArrayNotHasKey('class', $params);
         $this->assertArrayNotHasKey('style', $params);
     }
@@ -161,7 +161,7 @@ class Zend_Dojo_Form_Decorator_DijitContainerTest extends PHPUnit\Framework\Test
     public function testRenderingShouldCreateDijit()
     {
         $html = $this->decorator->render('');
-        $this->assertContains('dojoType="dijit.layout.ContentPane"', $html);
+        $this->assertStringContainsString('dojoType="dijit.layout.ContentPane"', $html);
     }
 
     /**
@@ -206,7 +206,7 @@ class Zend_Dojo_Form_Decorator_DijitContainerTest extends PHPUnit\Framework\Test
                 ->setView($this->view);
         $this->decorator->setElement($element);
         $html = $this->decorator->render('');
-        $this->assertContains('FooBar', $html);
+        $this->assertStringContainsString('FooBar', $html);
     }
 }
 

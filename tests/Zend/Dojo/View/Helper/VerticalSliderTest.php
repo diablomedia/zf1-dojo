@@ -40,7 +40,7 @@ class Zend_Dojo_View_Helper_VerticalSliderTest extends PHPUnit\Framework\TestCas
      *
      * @return void
      */
-    public function setUp()
+    public function setUp(): void
     {
         Zend_Registry::_unsetInstance();
         Zend_Dojo_View_Helper_Dojo::setUseDeclarative();
@@ -56,7 +56,7 @@ class Zend_Dojo_View_Helper_VerticalSliderTest extends PHPUnit\Framework\TestCas
      *
      * @return void
      */
-    public function tearDown()
+    public function tearDown(): void
     {
     }
 
@@ -161,7 +161,7 @@ class Zend_Dojo_View_Helper_VerticalSliderTest extends PHPUnit\Framework\TestCas
     {
         $html = $this->getElement();
         // Note that ' is converted to &#39; in Zend_View_Helper_HtmlElement::_htmlAttribs() (line 116)
-        $this->assertContains('onChange="dojo.byId(&#39;elementId&#39;).value = arguments[0];"', $html, $html);
+        $this->assertStringContainsString('onChange="dojo.byId(&#39;elementId&#39;).value = arguments[0];"', $html, $html);
     }
 
     public function testShouldCreateHiddenElementWithValue()
@@ -170,8 +170,8 @@ class Zend_Dojo_View_Helper_VerticalSliderTest extends PHPUnit\Framework\TestCas
         if (!preg_match('/(<input[^>]*(type="hidden")[^>]*>)/', $html, $m)) {
             $this->fail('No hidden element found');
         }
-        $this->assertContains('id="elementId"', $m[1]);
-        $this->assertContains('value="', $m[1]);
+        $this->assertStringContainsString('id="elementId"', $m[1]);
+        $this->assertStringContainsString('value="', $m[1]);
     }
 
     public function testShouldCreateLeftAndRightDecorationsWhenRequested()
@@ -179,14 +179,14 @@ class Zend_Dojo_View_Helper_VerticalSliderTest extends PHPUnit\Framework\TestCas
         $html = $this->getElement();
         $this->assertRegExp('/<div[^>]*(dojoType="dijit.form.VerticalRule")/', $html, $html);
         $this->assertRegExp('/<ol[^>]*(dojoType="dijit.form.VerticalRuleLabels")/', $html, $html);
-        $this->assertContains('leftDecoration', $html);
-        $this->assertContains('rightDecoration', $html);
+        $this->assertStringContainsString('leftDecoration', $html);
+        $this->assertStringContainsString('rightDecoration', $html);
     }
 
     public function testShouldIgnoreTopAndBottomDecorationsWhenPassed()
     {
         $html = $this->getElement();
-        $this->assertNotContains('topDecoration', $html);
-        $this->assertNotContains('bottomDecoration', $html);
+        $this->assertStringNotContainsString('topDecoration', $html);
+        $this->assertStringNotContainsString('bottomDecoration', $html);
     }
 }

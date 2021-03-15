@@ -40,7 +40,7 @@ class Zend_Dojo_View_Helper_CheckBoxTest extends PHPUnit\Framework\TestCase
      *
      * @return void
      */
-    public function setUp()
+    public function setUp(): void
     {
         Zend_Registry::_unsetInstance();
         Zend_Dojo_View_Helper_Dojo::setUseDeclarative();
@@ -56,7 +56,7 @@ class Zend_Dojo_View_Helper_CheckBoxTest extends PHPUnit\Framework\TestCase
      *
      * @return void
      */
-    public function tearDown()
+    public function tearDown(): void
     {
     }
 
@@ -101,7 +101,7 @@ class Zend_Dojo_View_Helper_CheckBoxTest extends PHPUnit\Framework\TestCase
         if (!preg_match('/(<input[^>]*(type="hidden")[^>]*>)/s', $html, $m)) {
             $this->fail('Missing hidden element with unchecked value');
         }
-        $this->assertContains('value="bar"', $m[1]);
+        $this->assertStringContainsString('value="bar"', $m[1]);
     }
 
     public function testShouldCheckElementWhenValueMatchesCheckedValue()
@@ -110,7 +110,7 @@ class Zend_Dojo_View_Helper_CheckBoxTest extends PHPUnit\Framework\TestCase
         if (!preg_match('/(<input[^>]*(type="checkbox")[^>]*>)/s', $html, $m)) {
             $this->fail('Missing checkbox element: ' . $html);
         }
-        $this->assertContains('checked="checked"', $m[1]);
+        $this->assertStringContainsString('checked="checked"', $m[1]);
     }
 
     /**
@@ -125,8 +125,8 @@ class Zend_Dojo_View_Helper_CheckBoxTest extends PHPUnit\Framework\TestCase
         if (!preg_match('#(<input[^>]*(?:type="checkbox")[^>]*>)#s', $html, $matches)) {
             $this->fail('Did not find checkbox in html: ' . $html);
         }
-        $this->assertContains('value="1"', $matches[1]);
-        $this->assertNotContains('checked', $matches[1]);
+        $this->assertStringContainsString('value="1"', $matches[1]);
+        $this->assertStringNotContainsString('checked', $matches[1]);
     }
 
     /**
@@ -135,6 +135,6 @@ class Zend_Dojo_View_Helper_CheckBoxTest extends PHPUnit\Framework\TestCase
     public function testElementShouldCreateAppropriateIdWhenNameIncludesArrayNotation()
     {
         $html = $this->helper->checkBox('foo[bar]', '0');
-        $this->assertContains('id="foo-bar"', $html);
+        $this->assertStringContainsString('id="foo-bar"', $html);
     }
 }
