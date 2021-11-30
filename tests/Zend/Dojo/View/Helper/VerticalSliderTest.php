@@ -146,14 +146,14 @@ class Zend_Dojo_View_Helper_VerticalSliderTest extends PHPUnit\Framework\TestCas
     public function testShouldAllowDeclarativeDijitCreation()
     {
         $html = $this->getElement();
-        $this->assertRegExp('/<div[^>]*(dojoType="dijit.form.VerticalSlider")/', $html, $html);
+        $this->assertMatchesRegularExpression('/<div[^>]*(dojoType="dijit.form.VerticalSlider")/', $html, $html);
     }
 
     public function testShouldAllowProgrammaticDijitCreation()
     {
         Zend_Dojo_View_Helper_Dojo::setUseProgrammatic();
         $html = $this->getElement();
-        $this->assertNotRegExp('/<div[^>]*(dojoType="dijit.form.VerticalSlider")/', $html);
+        $this->assertDoesNotMatchRegularExpression('/<div[^>]*(dojoType="dijit.form.VerticalSlider")/', $html);
         $this->assertNotNull($this->view->dojo()->getDijit('elementId-slider'));
     }
 
@@ -177,8 +177,8 @@ class Zend_Dojo_View_Helper_VerticalSliderTest extends PHPUnit\Framework\TestCas
     public function testShouldCreateLeftAndRightDecorationsWhenRequested()
     {
         $html = $this->getElement();
-        $this->assertRegExp('/<div[^>]*(dojoType="dijit.form.VerticalRule")/', $html, $html);
-        $this->assertRegExp('/<ol[^>]*(dojoType="dijit.form.VerticalRuleLabels")/', $html, $html);
+        $this->assertMatchesRegularExpression('/<div[^>]*(dojoType="dijit.form.VerticalRule")/', $html, $html);
+        $this->assertMatchesRegularExpression('/<ol[^>]*(dojoType="dijit.form.VerticalRuleLabels")/', $html, $html);
         $this->assertStringContainsString('leftDecoration', $html);
         $this->assertStringContainsString('rightDecoration', $html);
     }

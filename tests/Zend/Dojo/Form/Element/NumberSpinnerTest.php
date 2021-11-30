@@ -169,8 +169,8 @@ class Zend_Dojo_Form_Element_NumberSpinnerTest extends PHPUnit\Framework\TestCas
         $html = $this->element->render();
         // Note that ' is converted to &#39; in Zend_View_Helper_HtmlElement::_htmlAttribs() (line 116)
         $html = str_replace('&#39;', "'", $html);
-        $this->assertRegExp('/\'min\':\s*5/', $html, $html);
-        $this->assertRegExp('/\'max\':\s*10/', $html, $html);
+        $this->assertMatchesRegularExpression('/\'min\':\s*5/', $html, $html);
+        $this->assertMatchesRegularExpression('/\'max\':\s*10/', $html, $html);
     }
 
     public function testSmallAndLargeDeltaCanBeSetAsDecimalValues()

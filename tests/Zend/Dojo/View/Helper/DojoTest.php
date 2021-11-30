@@ -426,7 +426,7 @@ function() {
                     $this->assertStringContainsString('parseOnLoad', $script);
                     break;
                 case 1:
-                    $this->assertRegExp('#src="http://.+/dojo/[0-9.]+/dojo/dojo.xd.js"#', $script);
+                    $this->assertMatchesRegularExpression('#src="http://.+/dojo/[0-9.]+/dojo/dojo.xd.js"#', $script);
                     $this->assertStringContainsString('/>', $script);
                     break;
                 case 2:
@@ -455,8 +455,8 @@ function() {
         $this->helper->setView($view);
         $this->setupDojo();
         $html = $this->helper->__toString();
-        $this->assertRegExp('|<style [^>]*>[\r\n]+\s*<!--|', $html);
-        $this->assertRegExp('|<script [^>]*>[\r\n]+\s*//<!--|', $html);
+        $this->assertMatchesRegularExpression('|<style [^>]*>[\r\n]+\s*<!--|', $html);
+        $this->assertMatchesRegularExpression('|<script [^>]*>[\r\n]+\s*//<!--|', $html);
 
         $this->helper = new Zend_Dojo_View_Helper_Dojo();
         $view->doctype('XHTML1_STRICT');
@@ -467,8 +467,8 @@ function() {
         /**
          * @todo should stylesheets be escaped as CDATA when isXhtml()?
          */
-        $this->assertRegExp('|<style [^>]*>[\r\n]+\s*<!--|', $html);
-        $this->assertRegExp('|<script [^>]*>[\r\n]+\s*//<!\[CDATA\[|', $html);
+        $this->assertMatchesRegularExpression('|<style [^>]*>[\r\n]+\s*<!--|', $html);
+        $this->assertMatchesRegularExpression('|<script [^>]*>[\r\n]+\s*//<!\[CDATA\[|', $html);
     }
 
     public function testDojoHelperContainerPersistsBetweenViewObjects()
@@ -842,7 +842,7 @@ function() {
         $this->helper->addOnLoad('zend.custom');
         $this->view->textBox('foo', 'bar');
         $test = $this->helper->__toString();
-        $this->assertRegExp('/zendDijits.*?(zend\.custom)/s', $test, 'Generated markup: ' . $test);
+        $this->assertMatchesRegularExpression('/zendDijits.*?(zend\.custom)/s', $test, 'Generated markup: ' . $test);
     }
 
     public function testDojoViewHelperContainerAddOptionsPassesOnAllStringOptions()
@@ -909,7 +909,7 @@ function() {
                       )
         );
         $output = $this->helper->dijitsToJson();
-        $this->assertRegExp('#(function\\(\\){alert\\(\'foo\'\\);})#', $output);
+        $this->assertMatchesRegularExpression('#(function\\(\\){alert\\(\'foo\'\\);})#', $output);
     }
 
     /**

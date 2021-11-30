@@ -83,21 +83,21 @@ class Zend_Dojo_View_Helper_ValidationTextBoxTest extends PHPUnit\Framework\Test
     public function testShouldAllowDeclarativeDijitCreation()
     {
         $html = $this->getElement();
-        $this->assertRegExp('/<input[^>]*(dojoType="dijit.form.ValidationTextBox")/', $html, $html);
+        $this->assertMatchesRegularExpression('/<input[^>]*(dojoType="dijit.form.ValidationTextBox")/', $html, $html);
     }
 
     public function testShouldAllowProgrammaticDijitCreation()
     {
         Zend_Dojo_View_Helper_Dojo::setUseProgrammatic();
         $html = $this->getElement();
-        $this->assertNotRegExp('/<input[^>]*(dojoType="dijit.form.ValidationTextBox")/', $html);
+        $this->assertDoesNotMatchRegularExpression('/<input[^>]*(dojoType="dijit.form.ValidationTextBox")/', $html);
         $this->assertNotNull($this->view->dojo()->getDijit('elementId'));
     }
 
     public function testShouldCreateTextInput()
     {
         $html = $this->getElement();
-        $this->assertRegExp('/<input[^>]*(type="text")/', $html);
+        $this->assertMatchesRegularExpression('/<input[^>]*(type="text")/', $html);
     }
 
     /**

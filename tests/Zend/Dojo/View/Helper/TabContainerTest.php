@@ -81,14 +81,14 @@ class Zend_Dojo_View_Helper_TabContainerTest extends PHPUnit\Framework\TestCase
     public function testShouldAllowDeclarativeDijitCreation()
     {
         $html = $this->getContainer();
-        $this->assertRegExp('/<div[^>]*(dojoType="dijit.layout.TabContainer")/', $html, $html);
+        $this->assertMatchesRegularExpression('/<div[^>]*(dojoType="dijit.layout.TabContainer")/', $html, $html);
     }
 
     public function testShouldAllowProgrammaticDijitCreation()
     {
         Zend_Dojo_View_Helper_Dojo::setUseProgrammatic();
         $html = $this->getContainer();
-        $this->assertNotRegExp('/<div[^>]*(dojoType="dijit.layout.TabContainer")/', $html);
+        $this->assertDoesNotMatchRegularExpression('/<div[^>]*(dojoType="dijit.layout.TabContainer")/', $html);
         $this->assertNotNull($this->view->dojo()->getDijit('container'));
     }
 }
