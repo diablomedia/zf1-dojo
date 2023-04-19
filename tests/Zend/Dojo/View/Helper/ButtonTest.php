@@ -34,6 +34,9 @@
  */
 class Zend_Dojo_View_Helper_ButtonTest extends PHPUnit\Framework\TestCase
 {
+    protected $view;
+    protected $helper;
+
     /**
      * Sets up the fixture, for example, open a network connection.
      * This method is called before a test is executed.

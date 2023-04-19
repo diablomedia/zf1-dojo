@@ -34,6 +34,8 @@
  */
 class Zend_Dojo_Form_SubFormTest extends PHPUnit\Framework\TestCase
 {
+    protected $form;
+
     /**
      * Sets up the fixture, for example, open a network connection.
      * This method is called before a test is executed.

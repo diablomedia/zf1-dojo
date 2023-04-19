@@ -34,6 +34,9 @@
  */
 class Zend_Dojo_Form_Element_FilteringSelectTest extends PHPUnit\Framework\TestCase
 {
+    protected $view;
+    protected $element;
+
     /**
      * Sets up the fixture, for example, open a network connection.
      * This method is called before a test is executed.
@@ -101,7 +104,7 @@ class Zend_Dojo_Form_Element_FilteringSelectTest extends PHPUnit\Framework\TestC
         $this->assertFalse($this->element->getValidator('InArray'));
         $this->element->isValid('test');
         $validator = $this->element->getValidator('InArray');
-        $this->assertTrue($validator instanceof Zend_Validate_InArray);
+        $this->assertInstanceOf(Zend_Validate_InArray::class, $validator);
     }
 
     public function testShouldNotRegisterInArrayValidatorWhenStoreProvided()

@@ -34,6 +34,9 @@
  */
 class Zend_Dojo_Form_Element_DijitTest extends PHPUnit\Framework\TestCase
 {
+    protected $view;
+    protected $element;
+
     /**
      * Sets up the fixture, for example, open a network connection.
      * This method is called before a test is executed.
@@ -102,7 +105,7 @@ class Zend_Dojo_Form_Element_DijitTest extends PHPUnit\Framework\TestCase
     public function testDijitElementDecoratorShouldBeEnabledByDefault()
     {
         $decorator = $this->element->getDecorator('DijitElement');
-        $this->assertTrue($decorator instanceof Zend_Dojo_Form_Decorator_DijitElement, get_class($decorator));
+        $this->assertInstanceOf(Zend_Dojo_Form_Decorator_DijitElement::class, $decorator, get_class($decorator));
     }
 
     /**
@@ -111,7 +114,7 @@ class Zend_Dojo_Form_Element_DijitTest extends PHPUnit\Framework\TestCase
     public function testDescriptionDecoratorShouldBeEnabledByDefault()
     {
         $decorator = $this->element->getDecorator('Description');
-        $this->assertTrue($decorator instanceof Zend_Form_Decorator_Description, get_class($decorator));
+        $this->assertInstanceOf(Zend_Form_Decorator_Description::class, $decorator, get_class($decorator));
     }
 
     public function testRenderingShouldCreateDijit()

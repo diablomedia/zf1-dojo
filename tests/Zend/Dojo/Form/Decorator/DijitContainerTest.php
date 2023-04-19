@@ -34,6 +34,11 @@
  */
 class Zend_Dojo_Form_Decorator_DijitContainerTest extends PHPUnit\Framework\TestCase
 {
+    protected $view;
+    protected $decorator;
+    protected $element;
+    protected $errors;
+
     /**
      * Sets up the fixture, for example, open a network connection.
      * This method is called before a test is executed.

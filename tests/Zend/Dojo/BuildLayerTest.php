@@ -31,6 +31,8 @@
  */
 class Zend_Dojo_BuildLayerTest extends PHPUnit\Framework\TestCase
 {
+    protected $view;
+
     /**
      * Sets up the fixture, for example, open a network connection.
      * This method is called before a test is executed.
@@ -68,7 +70,7 @@ class Zend_Dojo_BuildLayerTest extends PHPUnit\Framework\TestCase
     {
         $build  = new Zend_Dojo_BuildLayer(array('view' => $this->view));
         $helper = $build->getDojoHelper();
-        $this->assertTrue($helper instanceof Zend_Dojo_View_Helper_Dojo_Container);
+        $this->assertInstanceOf(Zend_Dojo_View_Helper_Dojo_Container::class, $helper);
     }
 
     public function testLayerScriptPathIsNullByDefault()

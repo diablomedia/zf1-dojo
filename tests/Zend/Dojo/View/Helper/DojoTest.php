@@ -34,6 +34,8 @@
  */
 class Zend_Dojo_View_Helper_DojoTest extends PHPUnit\Framework\TestCase
 {
+    protected $view;
+
     /**
      * @var Zend_Dojo_View_Helper_Dojo_Container
      */
