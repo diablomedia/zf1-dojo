@@ -10,15 +10,19 @@ parameters:
         - '#Strict comparison using === between null and string will always evaluate to false\.#'
         -
             message: '#If condition is always true\.#'
-            path: %currentWorkingDirectory%/src/Zend/Dojo/BuildLayer.php
+            path: ./src/Zend/Dojo/BuildLayer.php
 
         # These are all defensive coding for arguments that could be multiple types (so can't really be type-hinted)
         -
             message: '#Result of && is always false\.#'
-            path: %currentWorkingDirectory%/src/Zend/Dojo/Data.php
+            path: ./src/Zend/Dojo/Data.php
         -
             message: '#Result of \|\| is always false\.#'
-            path: %currentWorkingDirectory%/src/Zend/Dojo/Data.php
+            path: ./src/Zend/Dojo/Data.php
         -
             message: '#Result of && is always false\.#'
-            path: %currentWorkingDirectory%/src/Zend/Dojo/View/Helper/Dojo/Container.php
+            path: ./src/Zend/Dojo/View/Helper/Dojo/Container.php
+        -
+            message: '#Negated boolean expression is always false\.#'
+            path: ./src/Zend/Dojo/Form/Element/DijitMulti.php
+            count: 1
