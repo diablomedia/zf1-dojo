@@ -53,7 +53,7 @@ class Zend_Dojo_Form_DisplayGroup extends Zend_Form_DisplayGroup
      * @param  Zend_View_Interface $view
      * @return $this
      */
-    public function setView(Zend_View_Interface $view = null)
+    public function setView(?Zend_View_Interface $view = null)
     {
         if (null !== $view) {
             if (false === $view->getPluginLoader('helper')->getPaths('Zend_Dojo_View_Helper')) {

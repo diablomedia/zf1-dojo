@@ -59,7 +59,7 @@ class Zend_Dojo_View_Helper_CheckBox extends Zend_Dojo_View_Helper_Dijit
      * @param  array $checkedOptions Should contain either two items, or the keys checkedValue and uncheckedValue
      * @return string
      */
-    public function checkBox($id, $value = null, array $params = array(), array $attribs = array(), array $checkedOptions = null)
+    public function checkBox($id, $value = null, array $params = array(), array $attribs = array(), ?array $checkedOptions = null)
     {
         // Prepare the checkbox options
         $checked = false;
